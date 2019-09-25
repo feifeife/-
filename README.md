@@ -4,10 +4,14 @@
 ## 目录
 - [RNN](#rnn)
 - [CNN](#cnn)
+	- [结构分析](#cnn结构分析)
+	- [视频](#视频预测未来帧)
+	- [streamline](#提取流场streamline特征)
+	- [涡识别](#提取流场vortex)
 - [GAN](#gan)
   - [分辨率提升](#分辨率提升)
   - [3DGAN](#3dgan)
-- [知识图谱](#知识图谱)
+- [NLP](#nlp)
 - [HPC](#hpc)
 
 ### RNN
@@ -49,7 +53,7 @@
   
 ### CNN
 
-#### CNN 结构分析
+#### CNN结构分析
 - 利用CNN中间层作为loss
   >*Zhang, R., Isola, P., Efros, A.A., Shechtman, E., & Wang, O. (2018). [The Unreasonable Effectiveness of Deep Features as a Perceptual Metric](https://arxiv.org/abs/1801.03924?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+arxiv%2Fcs%2FCV+%28ArXiv.cs.CV%29). 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 586-595.*
 #### 视频预测未来帧
@@ -154,7 +158,7 @@
 
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
-### 知识图谱
+### NLP
 ### HPC
 
 - 对HPC中的异常进行可视化(转化成向量表示)
