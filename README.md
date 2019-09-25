@@ -68,28 +68,30 @@
   
   如何生成中间的特征表示？？？（[3Dshape gan生成](#3dgan)）
 #### 提取流场vortex
-- 流场可视化：学习unsteady场的最优参考系参数
- > 1. *Kim, B., & Günther, T. (2019). [Robust Reference Frame Extraction from Unsteady 2D Vector Fields with Convolutional Neural Networks.](https://arxiv.org/abs/1903.10255) Comput. Graph. Forum,Eurovis 38, 285-295.*
-  - input：2D向量场
-  - output：参考系的旋转和平移参数θ
-  
-  由[TSR-TVD](#tsr)引用
-  
-  通过对steady的向量场进行变换获得train data，输入unsteady的向量场得到其形变的参数，就可以准确识别其vortex。
+* 流场可视化：学习unsteady场的最优参考系参数
+
+	> 1. *Kim, B., & Günther, T. (2019). [Robust Reference Frame Extraction from Unsteady 2D Vector Fields with Convolutional Neural Networks.](https://arxiv.org/abs/1903.10255) Comput. Graph. Forum,Eurovis 38, 285-295.*
+
+	* input：2D向量场
+	* output：参考系的旋转和平移参数θ
+	
+	由[TSR-TVD](#tsr)引用
+	
+	通过对steady的向量场进行变换获得train data，输入unsteady的向量场得到其形变的参数，就可以准确识别其vortex。
 
 - 流场可视化：R-CNN识别分类vortex，先检测再分类
- > 2. *Strofer, C.M., Wu, J., Xiao, H., & Paterson, E.G. (2018). [Data-Driven, Physics-Based Feature Extraction from Fluid Flow Fields using Convolutional Neural Networks.](https://arxiv.org/abs/1802.00775) Commun. Comput. Phys.*
-  - input:流场被分为三维网格，每个point都带有一个特征向量（类似RGB）：具有伽利略不变性的物理特征
-  * Step 1：Region Proposal：目标检测，得到候选框
-  * Step 2：分类,识别不同特性的流场
+	> 2. *Strofer, C.M., Wu, J., Xiao, H., & Paterson, E.G. (2018). [Data-Driven, Physics-Based Feature Extraction from Fluid Flow Fields using Convolutional Neural Networks.](https://arxiv.org/abs/1802.00775) Commun. Comput. Phys.*
+	* input:流场被分为三维网格，每个point都带有一个特征向量（类似RGB）：具有伽利略不变性的物理特征
+	* Step 1：Region Proposal：目标检测，得到候选框
+	* Step 2：分类,识别不同特性的流场
 - 流场可视化：CNN识别分类vortex（逆时针、顺时针）直接检测
- > 3. *Bin, T.J. (2018). [CNN-based Flow Field Feature Visualization Method.](https://pdfs.semanticscholar.org/de16/9148f9c8484d175f92463af461a2bdfb3605.pdf) IJPE*
-  - input：用9×9×2的向量场，u,v双通道
-  - output：对vortex分类，分成顺时针、逆时针和普通场
+	> 3. *Bin, T.J. (2018). [CNN-based Flow Field Feature Visualization Method.](https://pdfs.semanticscholar.org/de16/9148f9c8484d175f92463af461a2bdfb3605.pdf) IJPE*
+	* input：用9×9×2的向量场，u,v双通道
+	* output：对vortex分类，分成顺时针、逆时针和普通场
 - 流场可视化：CNN识别分类vortex，对每个点分类
- > 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1. *
-  - Step 1：用IVD方法给每个点打上标签，vortex：1，non-vertex：0
-  - Step 2：对于每个点，取一个15×15的patch，放进cnn训练，二分类确定这个点是否属于vortex
+	> 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1. *
+	- Step 1：用IVD方法给每个点打上标签，vortex：1，non-vertex：0
+	- Step 2：对于每个点，取一个15×15的patch，放进cnn训练，二分类确定这个点是否属于vortex
 ### GAN
 
 最新发展和应用 https://www.zhihu.com/question/52602529/answers/updated
