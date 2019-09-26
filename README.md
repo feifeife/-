@@ -15,6 +15,7 @@
   - [分辨率提升](#分辨率提升)
   - [3DGAN](#3dgan)
 - [NLP](#nlp)
+	- [Memory机制](#memory)
 - [HPC](#hpc)
 
 ### RNN
@@ -186,6 +187,10 @@ simulation, vi-sual mapping, and view parameters
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
 ### NLP
+#### Memory
+- Memory机制：加入存储器层(Facebook)
+>*Lample, G., Sablayrolles, A., Ranzato, M., Denoyer, L., & J'egou, H. (2019). [Large Memory Layers with Product Keys](https://arxiv.org/abs/1907.05242). ArXiv, abs/1907.05242.*
+
 ### HPC
 
 - 对HPC中的异常进行可视化(转化成向量表示)
