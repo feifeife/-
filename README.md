@@ -11,7 +11,7 @@
 	- [涡识别](#提取流场vortex)
 - [GAN](#gan)
 	- [Volume生成](#volume生成)
-	- [图像生成](#图像生成)
+	- [图像生成](#gan图像生成)
   - [分辨率提升](#分辨率提升)
   - [3DGAN](#3dgan)
 - [NLP](#nlp)
@@ -131,7 +131,7 @@ simulation, vi-sual mapping, and view parameters
 - 体数据渲染生成
   >*Berger, M., Li, J., & Levine, J.A. (2017). [A Generative Model for Volume Rendering.](https://arxiv.org/abs/1710.09545) IEEE Transactions on Visualization and Computer Graphics, 25, 1636-1650.*
 
-#### 图像生成
+#### GAN图像生成
 - <span id="sngan">SN-GAN：谱归一化，解决训练不稳定</span>
 	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR *
 #### 分辨率提升
