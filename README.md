@@ -4,11 +4,14 @@
 ## 目录
 - [RNN](#rnn)
 - [CNN](#cnn)
+	- [图像生成](图像生成)
 	- [结构分析](#cnn结构分析)
 	- [视频](#视频预测未来帧)
 	- [streamline](#提取流场streamline特征)
 	- [涡识别](#提取流场vortex)
 - [GAN](#gan)
+	- [Volume生成](#volume生成)
+	- [图像生成](#图像生成)
   - [分辨率提升](#分辨率提升)
   - [3DGAN](#3dgan)
 - [NLP](#nlp)
@@ -53,9 +56,16 @@
   
 ### CNN
 
+#### 图像生成
+- <span id="perceptual">Perceptual Loss:风格迁移</span>
+	>*Johnson, J., Alahi, A., & Fei-Fei, L. (2016). [Perceptual Losses for Real-Time Style Transfer and Super-Resolution.](https://arxiv.org/abs/1603.08155) ECCV.*
+- <span id="deepae">deep VAE学习图像语义特征</span>
+	>*Hou, X., Shen, L., Sun, K., & Qiu, G. (2016). [Deep Feature Consistent Variational Autoencoder.](https://arxiv.org/abs/1610.00291) 2017 IEEE Winter Conference on Applications of Computer Vision (WACV), 1133-1141.*
 #### CNN结构分析
 - 利用CNN中间层作为loss
   >*Zhang, R., Isola, P., Efros, A.A., Shechtman, E., & Wang, O. (2018). [The Unreasonable Effectiveness of Deep Features as a Perceptual Metric](https://arxiv.org/abs/1801.03924?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+arxiv%2Fcs%2FCV+%28ArXiv.cs.CV%29). 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 586-595.*
+	
+
 #### 视频预测未来帧
 - Deep Voxel Flow 
   >*(oral)Liu, Z., Yeh, R.A., Tang, X., Liu, Y., & Agarwala, A. (2017). Video Frame Synthesis Using Deep Voxel Flow. 2017 IEEE International Conference on Computer Vision (ICCV), 4473-4481.*
@@ -99,16 +109,31 @@
 ### GAN
 
 最新发展和应用 https://www.zhihu.com/question/52602529/answers/updated
+- <span id="gan">综述 : 损失函数、对抗架构、正则化、归一化和度量方法</span>
+>*Kurach, K., Lucic, M., Zhai, X., Michalski, M., & Gelly, S. (2018). [A Large-Scale Study on Regularization and Normalization in GANs.](https://arxiv.org/abs/1807.04720) ICML.*
+
+资料：https://daiwk.github.io/posts/cv-gan-overview.html
 #### VOLUME生成
-- INSITUNet:流场可视化图片生成
+- INSITUNet:流场可视化图片生成(探索参数空间)
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
-    
-  输入模拟参数，实时生成可视化图像
-  
-  卷积回归模型+判别器D
+simulation, vi-sual mapping, and view parameters
+  输入模拟参数(simulation, visual mapping, and view parameters)，实时生成可视化图像（RGB）->可以探索参数空间对可视化图像的影响
+  * in&out对于不同的**视觉参数**生成**可视化图像**，作为输入输出输入模型
+  * 模型结构：
+		* GAN:卷积回归模型（生成图像）+判别器D（对比GroundTruth）:内部都是resnet
+		
+	GAN结构来自于已有GAN模型（[SN-GAN](#sngan)和[ganlandsacpe](#gan)）
+		* 特征提取网络：VGGnet
+		
+	思路来自图像合成[Perceptual Losses](#perceptual)（CNN）和[SRGAN](#srgan)和[Deep feature VAE](#deepae)
+	
+	
 - 体数据渲染生成
   >*Berger, M., Li, J., & Levine, J.A. (2017). [A Generative Model for Volume Rendering.](https://arxiv.org/abs/1710.09545) IEEE Transactions on Visualization and Computer Graphics, 25, 1636-1650.*
 
+#### 图像生成
+- <span id="sngan">SN-GAN：谱归一化，解决训练不稳定</span>
+	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR *
 #### 分辨率提升
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
 ##### 体数据的超分辨率
@@ -126,7 +151,7 @@
 ##### 图片的超分辨率
 - SRCNN（CNN）
   >*Dong, Chao & Loy, Chen Change & He, Kaiming & Tang, Xiaoou. (2014). [Image Super-Resolution Using Deep Convolutional Networks.](https://arxiv.org/pdf/1501.00092.pdf) IEEE Transactions on Pattern Analysis and Machine Intelligence. 38. 10.1109/TPAMI.2015.2439281. *
-- SRGAN
+- <span id="srgan">SRGAN</span>
   >*Ledig, C., Theis, L., Huszar, F., Caballero, J., Cunningham, A., Acosta, A., Aitken, A., Tejani, A., Totz, J., Wang, Z., & Shi, W. (2016). P[Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)2017 IEEE (CVPR), 105-114.*
 - ESRGAN
   >*Wang, X., Yu, K., Wu, S., Gu, J., Liu, Y., Dong, C., Qiao, Y., & Loy, C.C. (2018). [Enhanced Super-Resolution Generative Adversarial Networks](https://arxiv.org/abs/1809.00219). ECCV Workshops.*
