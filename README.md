@@ -17,6 +17,7 @@
 - [NLP](#nlp)
 	- [Memory机制](#memory)
 - [HPC](#hpc)
+	- [并行粒子追踪](#并行粒子追踪)
 
 ### RNN
 - 流场可视化：预测粒子跟踪中的**数据访问**模式（LSTM）
@@ -195,3 +196,6 @@ simulation, vi-sual mapping, and view parameters
 
 - 对HPC中的异常进行可视化(转化成向量表示)
   >*Xie, C., Xu, W., & Mueller, K. (2018). A Visual Analytics Framework for the Detection of Anomalous Call Stack Trees in High Performance Computing Applications. IEEE Transactions on Visualization and Computer Graphics, 25, 215-224.*
+#### 并行粒子追踪
+- 并行粒子追踪综述
+	>*Zhang, Jiang & Yuan, Xiaoru. (2018). [A survey of parallel particle tracing algorithms in flow visualization.](http://vis.pku.edu.cn/research/publication/jov18-pptsurvey.pdf) Journal of Visualization. 21. 10.1007/s12650-017-0470-2. *
