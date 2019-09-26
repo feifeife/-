@@ -99,8 +99,8 @@
 ### GAN
 
 最新发展和应用 https://www.zhihu.com/question/52602529/answers/updated
-#### volume生成
-- Insitunet:流场可视化图片生成
+#### VOLUME生成
+- INSITUNet:流场可视化图片生成
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
     
   输入模拟参数，实时生成可视化图像
