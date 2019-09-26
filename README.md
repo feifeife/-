@@ -120,10 +120,12 @@ simulation, vi-sual mapping, and view parameters
   输入模拟参数(simulation, visual mapping, and view parameters)，实时生成可视化图像（RGB）->可以探索参数空间对可视化图像的影响
   * in&out对于不同的**视觉参数**生成**可视化图像**，作为输入输出输入模型
   * 模型结构：
-		* GAN:卷积回归模型（生成图像）+判别器D（对比GroundTruth）:内部都是resnet
+	
+	* GAN:卷积回归模型（生成图像）+判别器D（对比GroundTruth）:内部都是resnet
 		
 	GAN结构来自于已有GAN模型（[SN-GAN](#sngan)和[ganlandsacpe](#gan)）
-		* 特征提取网络：VGGnet
+		
+	* 特征提取网络：VGGnet
 		
 	思路来自图像合成[Perceptual Losses](#perceptual)（CNN）和[SRGAN](#srgan)和[Deep feature VAE](#deepae)
 	
