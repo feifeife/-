@@ -119,6 +119,7 @@
 - INSITUNet:流场可视化图片生成(探索参数空间)
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
 simulation, vi-sual mapping, and view parameters
+
   输入模拟参数(simulation, visual mapping, and view parameters)，实时生成可视化图像（RGB）->可以探索参数空间对可视化图像的影响
   * in&out对于不同的**视觉参数**生成**可视化图像**，作为输入输出输入模型
   * 模型结构：
@@ -137,7 +138,7 @@ simulation, vi-sual mapping, and view parameters
 
 #### GAN图像生成
 - <span id="sngan">SN-GAN：谱归一化，解决训练不稳定</span>
-	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR *
+	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR*
 #### 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
 ##### 体数据的超分辨率
@@ -145,7 +146,7 @@ simulation, vi-sual mapping, and view parameters
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
 
 - 时序流体数据tempoGAN
-  >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304. *
+  >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
   
   input：单时间步的低分辨率流体数据
   
@@ -154,7 +155,7 @@ simulation, vi-sual mapping, and view parameters
 
 ##### 图片的超分辨率
 - SRCNN（CNN）
-  >*Dong, Chao & Loy, Chen Change & He, Kaiming & Tang, Xiaoou. (2014). [Image Super-Resolution Using Deep Convolutional Networks.](https://arxiv.org/pdf/1501.00092.pdf) IEEE Transactions on Pattern Analysis and Machine Intelligence. 38. 10.1109/TPAMI.2015.2439281. *
+  >*Dong, Chao & Loy, Chen Change & He, Kaiming & Tang, Xiaoou. (2014). [Image Super-Resolution Using Deep Convolutional Networks.](https://arxiv.org/pdf/1501.00092.pdf) IEEE Transactions on Pattern Analysis and Machine Intelligence. 38. 10.1109/TPAMI.2015.2439281.*
 - <span id="srgan">SRGAN</span>
   >*Ledig, C., Theis, L., Huszar, F., Caballero, J., Cunningham, A., Acosta, A., Aitken, A., Tejani, A., Totz, J., Wang, Z., & Shi, W. (2016). P[Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)2017 IEEE (CVPR), 105-114.*
 - ESRGAN
