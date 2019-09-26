@@ -4,15 +4,15 @@
 ## 目录
 - [RNN](#rnn)
 - [CNN](#cnn)
-	- [图像生成](#图像生成)
+	- [风格迁移](#风格迁移)
 	- [结构分析](#cnn结构分析)
 	- [视频](#视频预测未来帧)
 	- [streamline](#提取流场streamline特征)
 	- [涡识别](#提取流场vortex)
 - [GAN](#gan)
-	- [Volume生成](#volume生成)
+	- [Volume render](#volume)
 	- [图像生成](#gan图像生成)
-  - [分辨率提升](#分辨率提升)
+  - [超分辨率](#超分辨率)
   - [3DGAN](#3dgan)
 - [NLP](#nlp)
 	- [Memory机制](#memory)
@@ -58,7 +58,7 @@
   
 ### CNN
 
-#### 图像生成
+#### 风格迁移
 - <span id="perceptual">Perceptual Loss:风格迁移</span>
 	>*Johnson, J., Alahi, A., & Fei-Fei, L. (2016). [Perceptual Losses for Real-Time Style Transfer and Super-Resolution.](https://arxiv.org/abs/1603.08155) ECCV.*
 - <span id="deepae">deep VAE学习图像语义特征</span>
@@ -115,7 +115,7 @@
 >*Kurach, K., Lucic, M., Zhai, X., Michalski, M., & Gelly, S. (2018). [A Large-Scale Study on Regularization and Normalization in GANs.](https://arxiv.org/abs/1807.04720) ICML.*
 
 资料：https://daiwk.github.io/posts/cv-gan-overview.html
-#### VOLUME生成
+#### VOLUME
 - INSITUNet:流场可视化图片生成(探索参数空间)
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
 simulation, vi-sual mapping, and view parameters
@@ -138,7 +138,7 @@ simulation, vi-sual mapping, and view parameters
 #### GAN图像生成
 - <span id="sngan">SN-GAN：谱归一化，解决训练不稳定</span>
 	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR *
-#### 分辨率提升
+#### 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
 ##### 体数据的超分辨率
 - 体数据的上采样(CNN)
