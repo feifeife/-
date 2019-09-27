@@ -112,9 +112,13 @@
 
 最新发展和应用 https://www.zhihu.com/question/52602529/answers/updated
 - <span id="gan">综述 : 损失函数、对抗架构、正则化、归一化和度量方法</span>
->*Kurach, K., Lucic, M., Zhai, X., Michalski, M., & Gelly, S. (2018). [A Large-Scale Study on Regularization and Normalization in GANs.](https://arxiv.org/abs/1807.04720) ICML.*
+	>*Kurach, K., Lucic, M., Zhai, X., Michalski, M., & Gelly, S. (2018). [A Large-Scale Study on Regularization and Normalization in GANs.](https://arxiv.org/abs/1807.04720) ICML.*
+	
+	资料：https://daiwk.github.io/posts/cv-gan-overview.html
+	
+- 条件转移GAN：更少的数据要求+更多分类
+	>*Wu, C., Wen, W., Chen, Y., & Li, H. (2019). [Conditional Transferring Features: Scaling GANs to Thousands of Classes with 30% Less High-quality Data for Training.] (https://www.arxiv-vanity.com/papers/1909.11308/) CVPR*
 
-资料：https://daiwk.github.io/posts/cv-gan-overview.html
 #### VOLUME
 - INSITUNet:流场可视化图片生成(探索参数空间)
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
@@ -189,9 +193,12 @@ simulation, vi-sual mapping, and view parameters
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
 ### NLP
+#### Attention
+- 可解释性
+	>*Vashishth, S., Upadhyay, S., Tomar, G.S., & Faruqui, M. (2019). [Attention Interpretability Across NLP Tasks.](https://www.arxiv-vanity.com/papers/1909.11218/)*
 #### Memory
-- Memory机制：加入存储器层(Facebook)
->*Lample, G., Sablayrolles, A., Ranzato, M., Denoyer, L., & J'egou, H. (2019). [Large Memory Layers with Product Keys](https://arxiv.org/abs/1907.05242). ArXiv, abs/1907.05242.*
+- Memory机制：attention中加入存储器层(Facebook)
+	>*Lample, G., Sablayrolles, A., Ranzato, M., Denoyer, L., & J'egou, H. (2019). [Large Memory Layers with Product Keys](https://arxiv.org/abs/1907.05242). ArXiv, abs/1907.05242.*
 
 ### HPC
 
