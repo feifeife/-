@@ -5,6 +5,7 @@
 - [RNN](#rnn)
 - [CNN](#cnn)
 	- [风格迁移](#风格迁移)
+	- [目标检测](#object-detection)
 	- [结构分析](#cnn结构分析)
 	- [视频](#视频预测未来帧)
 	- [streamline](#提取流场streamline特征)
