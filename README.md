@@ -63,6 +63,22 @@
 	>*Johnson, J., Alahi, A., & Fei-Fei, L. (2016). [Perceptual Losses for Real-Time Style Transfer and Super-Resolution.](https://arxiv.org/abs/1603.08155) ECCV.*
 - <span id="deepae">deep VAE学习图像语义特征</span>
 	>*Hou, X., Shen, L., Sun, K., & Qiu, G. (2016). [Deep Feature Consistent Variational Autoencoder.](https://arxiv.org/abs/1610.00291) 2017 IEEE Winter Conference on Applications of Computer Vision (WACV), 1133-1141.*
+	
+#### Object Detection
+- Cascade R-CNN
+	>*Cai, Z., & Vasconcelos, N. (2017). [Cascade R-CNN: Delving Into High Quality Object Detection.](https://arxiv.org/abs/1712.00726) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 6154-6162.*
+	
+	在提出候选框anchor box时，由于IoU（和GT的重叠部分）阈值设为0.5偏低，造成很多close false positive（稍微高于0.5，但是是负样本）重复无用的候选框，因此采用级联的方式逐步提升，在不同的阶段设置不同的阈值
+	
+论文笔记：https://wanglichun.tech/algorithm/CascadeRCNN.html
+
+	 https://arleyzhang.github.io/articles/1c9cf9be/
+	 
+	 https://github.com/ming71/CV_PaperDaily/blob/master/CVPR/Cascade-R-CNN-Delving-into-High-Quality-Object-Detection.md
+	 
+- CBNet：多模型特征融合
+	>*Liu, Yudong & Wang, Yongtao & Wang, Siwei & Liang, TingTing & Zhao, Qijie & Tang, Zhi & Ling, Haibin. (2019). [CBNet: A Novel Composite Backbone Network Architecture for Object Detection.](https://arxiv.org/abs/1909.03625v1)*
+
 #### CNN结构分析
 - 利用CNN中间层作为loss
   >*Zhang, R., Isola, P., Efros, A.A., Shechtman, E., & Wang, O. (2018). [The Unreasonable Effectiveness of Deep Features as a Perceptual Metric](https://arxiv.org/abs/1801.03924?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+arxiv%2Fcs%2FCV+%28ArXiv.cs.CV%29). 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 586-595.*
