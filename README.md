@@ -4,6 +4,7 @@
 ## 目录
 - [RNN](#rnn)
 - [CNN](#cnn)
+	- [经典网络结构](#经典网络结构)
 	- [风格迁移](#风格迁移)
 	- [目标检测](#object-detection)
 	- [结构分析](#cnn结构分析)
@@ -58,7 +59,29 @@
   >*Hashemi, M., Swersky, K., Smith, J.A., Ayers, G., Litz, H., Chang, J., Kozyrakis, C.E., & Ranganathan, P. (2018). [Learning Memory Access Patterns](https://arxiv.org/pdf/1803.02329.pdf) ArXiv, abs/1803.02329.*
   
 ### CNN
+#### 经典模型
+- ResNet
+	>*He, K., Zhang, X., Ren, S., & Sun, J. (2015). [Deep Residual Learning for Image Recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)](https://arxiv.org/abs/1512.03385)[(code)](https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py), 770-778.*
 
+详解：https://zhuanlan.zhihu.com/p/56961832
+
+https://blog.csdn.net/lanran2/article/details/79057994
+
+解决了什么问题：https://www.zhihu.com/question/64494691/answer/786270699
+
+其他变体：https://www.jiqizhixin.com/articles/042201
+
+- ResNeXt
+>*Xie, S., Girshick, R.B., Dollár, P., Tu, Z., & He, K. (2016). [Aggregated Residual Transformations for Deep Neural Networks.](https://arxiv.org/abs/1611.05431) [(code)](https://github.com/Cadene/pretrained-models.pytorch/blob/master/pretrainedmodels/models/resnext.py) 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 5987-5995.*
+
+详解：https://zhuanlan.zhihu.com/p/78019001
+
+https://blog.csdn.net/u014380165/article/details/71667916
+
+- DenseNet
+	>*Huang, G., Liu, Z., Maaten, L.V., & Weinberger, K.Q. (2016). [Densely Connected Convolutional Networks.](https://arxiv.org/abs/1608.06993) [(code)](https://github.com/liuzhuang13/DenseNet) 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2261-2269.*
+	
+	
 #### 风格迁移
 - <span id="perceptual">Perceptual Loss:风格迁移</span>
 	>*Johnson, J., Alahi, A., & Fei-Fei, L. (2016). [Perceptual Losses for Real-Time Style Transfer and Super-Resolution.](https://arxiv.org/abs/1603.08155) ECCV.*
