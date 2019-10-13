@@ -59,7 +59,7 @@
   >*Hashemi, M., Swersky, K., Smith, J.A., Ayers, G., Litz, H., Chang, J., Kozyrakis, C.E., & Ranganathan, P. (2018). [Learning Memory Access Patterns](https://arxiv.org/pdf/1803.02329.pdf) ArXiv, abs/1803.02329.*
   
 ### CNN
-#### 经典模型
+#### 经典网络结构
 - ResNet
 	>*He, K., Zhang, X., Ren, S., & Sun, J. (2015). [Deep Residual Learning for Image Recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)](https://arxiv.org/abs/1512.03385)[(code)](https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py), 770-778.*
 
