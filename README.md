@@ -63,20 +63,20 @@
 - ResNet
 	>*He, K., Zhang, X., Ren, S., & Sun, J. (2015). [Deep Residual Learning for Image Recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)](https://arxiv.org/abs/1512.03385)[(code)](https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py), 770-778.*
 
-详解：https://zhuanlan.zhihu.com/p/56961832
+	详解：https://zhuanlan.zhihu.com/p/56961832
 
-https://blog.csdn.net/lanran2/article/details/79057994
+	https://blog.csdn.net/lanran2/article/details/79057994
 
-解决了什么问题：https://www.zhihu.com/question/64494691/answer/786270699
+	解决了什么问题：https://www.zhihu.com/question/64494691/answer/786270699
 
-其他变体：https://www.jiqizhixin.com/articles/042201
+	其他变体：https://www.jiqizhixin.com/articles/042201
 
 - ResNeXt
->*Xie, S., Girshick, R.B., Dollár, P., Tu, Z., & He, K. (2016). [Aggregated Residual Transformations for Deep Neural Networks.](https://arxiv.org/abs/1611.05431) [(code)](https://github.com/Cadene/pretrained-models.pytorch/blob/master/pretrainedmodels/models/resnext.py) 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 5987-5995.*
+	>*Xie, S., Girshick, R.B., Dollár, P., Tu, Z., & He, K. (2016). [Aggregated Residual Transformations for Deep Neural Networks.](https://arxiv.org/abs/1611.05431) [(code)](https://github.com/Cadene/pretrained-models.pytorch/blob/master/pretrainedmodels/models/resnext.py) 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 5987-5995.*
 
-详解：https://zhuanlan.zhihu.com/p/78019001
+	详解：https://zhuanlan.zhihu.com/p/78019001
 
-https://blog.csdn.net/u014380165/article/details/71667916
+	https://blog.csdn.net/u014380165/article/details/71667916
 
 - DenseNet
 	>*Huang, G., Liu, Z., Maaten, L.V., & Weinberger, K.Q. (2016). [Densely Connected Convolutional Networks.](https://arxiv.org/abs/1608.06993) [(code)](https://github.com/liuzhuang13/DenseNet) 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2261-2269.*
