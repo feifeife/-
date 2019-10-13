@@ -81,6 +81,7 @@ https://blog.csdn.net/u014380165/article/details/71667916
 - DenseNet
 	>*Huang, G., Liu, Z., Maaten, L.V., & Weinberger, K.Q. (2016). [Densely Connected Convolutional Networks.](https://arxiv.org/abs/1608.06993) [(code)](https://github.com/liuzhuang13/DenseNet) 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2261-2269.*
 	
+	详解：https://blog.csdn.net/u014380165/article/details/75142664
 	
 #### 风格迁移
 - <span id="perceptual">Perceptual Loss:风格迁移</span>
