@@ -6,7 +6,7 @@
 - [CNN](#cnn)
 	- [经典网络结构](#经典网络结构)
 	- [风格迁移](#风格迁移)
-	- [目标检测](#object-detection)
+	- [目标检测](#目标检测)
 	- [结构分析](#cnn结构分析)
 	- [视频](#视频预测未来帧)
 	- [streamline](#提取流场streamline特征)
@@ -89,7 +89,7 @@
 - <span id="deepae">deep VAE学习图像语义特征</span>
 	>*Hou, X., Shen, L., Sun, K., & Qiu, G. (2016). [Deep Feature Consistent Variational Autoencoder.](https://arxiv.org/abs/1610.00291) 2017 IEEE Winter Conference on Applications of Computer Vision (WACV), 1133-1141.*
 	
-#### Object Detection
+#### 目标检测
 - Cascade R-CNN
 	>*Cai, Z., & Vasconcelos, N. (2017). [Cascade R-CNN: Delving Into High Quality Object Detection.](https://arxiv.org/abs/1712.00726) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 6154-6162.*
 	
@@ -250,4 +250,46 @@ simulation, vi-sual mapping, and view parameters
   >*Xie, C., Xu, W., & Mueller, K. (2018). A Visual Analytics Framework for the Detection of Anomalous Call Stack Trees in High Performance Computing Applications. IEEE Transactions on Visualization and Computer Graphics, 25, 215-224.*
 #### 并行粒子追踪
 - 并行粒子追踪综述
-	>*Zhang, Jiang & Yuan, Xiaoru. (2018). [A survey of parallel particle tracing algorithms in flow visualization.](http://vis.pku.edu.cn/research/publication/jov18-pptsurvey.pdf) Journal of Visualization. 21. 10.1007/s12650-017-0470-2. *
+	>*Zhang, Jiang & Yuan, Xiaoru. (2018). [A survey of parallel particle tracing algorithms in flow visualization.](http://vis.pku.edu.cn/research/publication/jov18-pptsurvey.pdf) Journal of Visualization. 21. 10.1007/s12650-017-0470-2.*
+- CPU，I/O线程和计算线程混合
+	>*Camp, D., Garth, C., Childs, H., Pugmire, D., & Joy, K.I. (2011). [Streamline Integration Using MPI-Hybrid Parallelism on a Large Multicore Architecture. ](https://crd.lbl.gov/assets/pubs_presos/LBNL-4563E.pdf)IEEE Transactions on Visualization and Computer Graphics, 17, 1702-1713.*
+
+	一个task负责一个单独的计算任务：一部分data blocks or particles
+
+	MPI-Only:一个task=一个core=多个（4个）线程
+
+	MPI-Hybrid:一个node==一个task==多个（4个）core=多个（4个）线程（只是计算线程的个数）
+	
+	线程在两个队列上的同步通过：**互斥锁和条件原语**，task之间的同步通过**MPI**
+	
+	Task parallelism：每个Task负责一部分particles，有一块数据缓存，两个粒子队列，n个I/O线程和n个计算线程。I/O线程负责加载inactive队列中粒子需要的数据，计算线程负责advect。
+
+	
+
+	Data parallelism：每个Task负责一部分数据块，两个队列，1个通信线程，n-1个计算线程。通信线程负责将超出界限的粒子送到目的地Task，接受其他task发来的粒子，计算线程负责advect
+
+
+- 上述结构+GPU加速+Data Parallelism
+	>*D. Camp, H. Krishnan,[GPU acceleration of particle advection workloads in a parallel, distributed memory setting.](https://pdfs.semanticscholar.org/89cd/edbc0f33fc53a3abacb07c835e18bb9659cd.pdf?_ga=2.15252150.1459940645.1571104676-1882078897.1570782246) In EGPGV13: Eurographics Symposium on Parallel Graphics and Visualization, pp. 1–8, 2013*
+
+	一个node==一个task==多个（8个）core，一个task（单独计算，负责一部分 data block）下有多个（8个）线程（对应core的个数：只是work线程的个数）：一个主线程负责通信，7个work线程负责计算。
+
+	线程同步通过：**互斥锁**，task之间通信通过：**MPI点对点非阻塞通信**
+
+	Data parallelism：每个task不断迭代下列操作，直到所有task都结束：1）一组粒子在GPU/CPU advect 2）将结束发射的粒子放进对应的队列中 3）通信：将粒子传递给目的地的task。 
+	
+	
+- 自适应，分解时间段计算SFM,CPU+GPU，task parallelism
+	>*Guo, H., He, W., Seo, S., Shen, H., Constantinescu, E.M., Liu, C., & Peterka, T. (2018). [Extreme-Scale Stochastic Particle Tracing for Uncertain Unsteady Flow Visualization and Analysis.](https://www.mcs.anl.gov/~tpeterka/papers/2018/guo-tvcg18-paper.pdf) IEEE Transactions on Visualization and Computer Graphics, 25, 2710-2724.*
+	
+	自适应的调整每个位置i进行的蒙特卡洛模拟的次数
+	
+	Adaptive：每一次迭代，一个batch的粒子会从第i个网格的中心射出，计算这轮迭代之前所有的粒子的终点的概率分布，直到概率分布收敛，迭代结束（p的信息熵的插值来表示终止）
+	
+	一组进程单独计算负责一个任务（**一部分seeds**+**全部数据**)；
+	
+	组内数据分布式存储：每个进程负责一部分数据;如一组有4个进程，总共有32块数据，则每个进程负责8块数据
+
+	一个node = 一个task进程 （进程间通过MPI通信）= 16个core = 64个线程：一个主线程负责MPI通信，63个work线程负责计算
+	
+	每个进程里有两组任务队列，work和send：主线程将send队列的任务送往目标进程去执行，计算线程计算work队列里的任务，如果particle超出该进程的数据范围，就创建一个相关任务加入相应目的地的send队列。
