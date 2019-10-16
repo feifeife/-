@@ -6,6 +6,7 @@
 - [CNN](#cnn)
 	- [经典网络结构](#经典网络结构)
 	- [风格迁移](#风格迁移)
+	- [Point Cloud](#Point-Cloud)
 	- [目标检测](#目标检测)
 	- [结构分析](#cnn结构分析)
 	- [视频](#视频预测未来帧)
@@ -20,6 +21,9 @@
 	- [Memory机制](#memory)
 - [HPC](#hpc)
 	- [并行粒子追踪](#并行粒子追踪)
+- [Flow visualization](#flow-visualization)
+	- [FTLE](#ftle)
+	- [流体模拟](#fluid-simulation)
 
 ### RNN
 - 流场可视化：预测粒子跟踪中的**数据访问**模式（LSTM）
@@ -88,7 +92,14 @@
 	>*Johnson, J., Alahi, A., & Fei-Fei, L. (2016). [Perceptual Losses for Real-Time Style Transfer and Super-Resolution.](https://arxiv.org/abs/1603.08155) ECCV.*
 - <span id="deepae">deep VAE学习图像语义特征</span>
 	>*Hou, X., Shen, L., Sun, K., & Qiu, G. (2016). [Deep Feature Consistent Variational Autoencoder.](https://arxiv.org/abs/1610.00291) 2017 IEEE Winter Conference on Applications of Computer Vision (WACV), 1133-1141.*
-	
+#### Point Cloud
+Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
+- 点云分类
+	>*Roveri, R., Rahmann, L., Öztireli, C., & Gross, M.H. (2018). [A Network Architecture for Point Cloud Classification via Automatic Depth Images Generation.](https://pdfs.semanticscholar.org/8348/589d78e6b7b9f8da5d5db9b5720dee0e79d5.pdf) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 4176-4184.*
+
+	用PointNet将3D点云转化成2D深度图,后用ResNet50分类
+
+	详解：https://blog.csdn.net/cy13762633948/article/details/82780042
 #### 目标检测
 - Cascade R-CNN
 	>*Cai, Z., & Vasconcelos, N. (2017). [Cascade R-CNN: Delving Into High Quality Object Detection.](https://arxiv.org/abs/1712.00726) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 6154-6162.*
@@ -128,7 +139,7 @@
   
   如何生成中间的特征表示？？？（[3Dshape gan生成](#3dgan)）
 #### 提取流场vortex
-* 流场可视化：学习unsteady场的最优参考系参数
+- 学习unsteady场的最优参考系参数
 
 	> 1. *Kim, B., & Günther, T. (2019). [Robust Reference Frame Extraction from Unsteady 2D Vector Fields with Convolutional Neural Networks.](https://arxiv.org/abs/1903.10255) Comput. Graph. Forum,Eurovis 38, 285-295.*
 
@@ -137,18 +148,18 @@
 	
 	由[TSR-TVD](#tsr)引用
 	
-	通过对steady的向量场进行变换获得train data，输入unsteady的向量场得到其形变的参数，就可以准确识别其vortex。
+	通过对steady的向量场进行变换获得train data（用来参考如何生成变形的vortex lic），输入unsteady的向量场得到其形变的参数，就可以准确识别其vortex。
 
-- 流场可视化：R-CNN识别分类vortex，先检测再分类
+- R-CNN识别分类vortex，先检测再分类
 	> 2. *Strofer, C.M., Wu, J., Xiao, H., & Paterson, E.G. (2018). [Data-Driven, Physics-Based Feature Extraction from Fluid Flow Fields using Convolutional Neural Networks.](https://arxiv.org/abs/1802.00775) Commun. Comput. Phys.*
 	* input:流场被分为三维网格，每个point都带有一个特征向量（类似RGB）：具有伽利略不变性的物理特征
 	* Step 1：Region Proposal：目标检测，得到候选框
 	* Step 2：分类,识别不同特性的流场
-- 流场可视化：CNN识别分类vortex（逆时针、顺时针）直接检测
+- CNN识别分类vortex（逆时针、顺时针）直接检测
 	> 3. *Bin, T.J. (2018). [CNN-based Flow Field Feature Visualization Method.](https://pdfs.semanticscholar.org/de16/9148f9c8484d175f92463af461a2bdfb3605.pdf) IJPE*
 	* input：用9×9×2的向量场，u,v双通道
 	* output：对vortex分类，分成顺时针、逆时针和普通场
-- 流场可视化：CNN识别分类vortex，对每个点分类
+- CNN识别分类vortex，对每个点分类
 	> 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1. *
 	- Step 1：用IVD方法给每个点打上标签，vortex：1，non-vertex：0
 	- Step 2：对于每个点，取一个15×15的patch，放进cnn训练，二分类确定这个点是否属于vortex
@@ -283,3 +294,22 @@ simulation, vi-sual mapping, and view parameters
 		* 组内数据分布式存储：每个进程负责一部分数据;如一组有4个进程，总共有32块数据，则每个进程负责8块数据
 		* 一个node = 一个task进程 （进程间通过MPI通信）= 16个core = 64个线程：一个主线程负责MPI通信，63个work线程负责计算
 		* Data parallelism：每个进程里有两组任务队列，work和send：主线程将send队列的任务送往目标进程去执行，计算线程计算work队列里的任务，如果particle超出该进程的数据范围，就创建一个相关任务加入相应目的地的send队列。
+
+### Flow Visualization
+
+- 云层及风场可视化案例
+	>*Rimensberger, N., Gross, M.H., & Günther, T. (2019). [Visualization of Clouds and Atmospheric Air Flows.](https://pdfs.semanticscholar.org/90c2/369fc8aac8fed7a8b7818d32f1aee7571ee8.pdf?_ga=2.220039578.204005370.1571192150-1135356387.1566352454) IEEE Computer Graphics and Applications, 39, 12-25.*
+	
+	向量场的旋度、散度的volume rendering和iso-surface，pathlines的可视化，FTLE的计算：[unbiased 蒙特卡洛渲染](#mcftle)
+- 生成objective vortex：通过调整成最优参考系
+	>*Günther, T., Gross, M.H., & Theisel, H. (2017). [Generic objective vortices for flow visualization.](https://cgl.ethz.ch/publications/papers/paperGun17c.php) ACM Trans. Graph., 36, 141:1-141:11.*
+#### FTLE
+- <span id="mcftle">MCFTLE</span>
+	>*T.G ̈ unther,A.Kuhn,andH.Theisel. [MCFTLE : Monte Carlo rendering of finite-time Lyapunov exponent fields.](https://people.inf.ethz.ch/~gutobia/publications/Guenther16EuroVisb.html) Computer Graphics Forum (Proc. EuroVis), 35(3):381–390, 2016.*
+	>*Rojo, I.B., Groß, M., & Gonther, T. (2019). [Accelerated Monte Carlo Rendering of Finite-Time Lyapunov Exponents.](https://cgl.ethz.ch/publications/papers/paperIbr19b.php) IEEE transactions on visualization and computer graphics.*
+
+#### Fluid simulation
+- Deep Fluids:CNN-based 模拟流体 from parameters
+	>*Kim, B., Azevedo, V.C., Thürey, N., Kim, T., Gross, M.H., & Solenthaler, B. (2018). [Deep Fluids: A Generative Network for Parameterized Fluid Simulations.](https://cgl.ethz.ch/publications/papers/paperKim19a.php) Comput. Graph. Forum, 38, 59-70.*
+- Scala Flow:从视频流生成流体数据
+	>*[ScalarFlow: A Large-Scale Volumetric Data Set of Real-world Scalar Transport Flows for Computer Animation and Machine Learning](https://ge.in.tum.de/publications/2019-tog-eckert/)*
