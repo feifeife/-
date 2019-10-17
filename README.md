@@ -33,18 +33,15 @@
 - <span id="tsr">流场可视化：TSR-TVD：流场时序的高分辨率</span>
   >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
   
-  * 目标：对于两个时间步t,k之间的体数据，找到一个映射Φ，得到中间时间步的体数据
-  
-  * 网络结构RGN：RNN+GNN
-    * Generate：一个生成网络G(类似于bilstm的思想)
-  
-		a. 预测模型（biRNN）：前向预测（从t开始）和后向预测（从k开始）
-    
-		b. 融合模型：将前向后向的各个对应的时间步融合
-    * Discriminator：一个判别模型D（二分类的CNN）
-  
+  - 目标：对于两个时间步t,k之间的体数据，找到一个映射Φ，得到中间时间步的体数据
+  - 网络结构RGN：RNN+GNN
+  	- Generate：一个生成网络G(类似于bilstm的思想)
+	a. 预测模型（biRNN）：前向预测（从t开始）和后向预测（从k开始）
+	b. 融合模型：将前向后向的各个对应的时间步融合
+    	- Discriminator：一个判别模型D（二分类的CNN）
+		
 		区分出fake的体数据V
-    * 3个loss funtion：（1）生成对抗loss（2）体数据和GroundTruth对比的损失（生成器尽可能的还原GT的体数据）（3）CNN中间层特征损失：		提取判别器D中的卷积层参数，使生成器生成的体数据在每一层都尽可能的贴近GroundTruth
+   - 3个loss funtion：（1）生成对抗loss（2）体数据和GroundTruth对比的损失（生成器尽可能的还原GT的体数据）（3）CNN中间层特征损失：		提取判别器D中的卷积层参数，使生成器生成的体数据在每一层都尽可能的贴近GroundTruth
 
 - 流体可视化：预测流体**压力场p**的变化(RNN)
   >*Wiewel, S., Becher, M., & Thürey, N. (2018). [Latent Space Physics: Towards Learning the Temporal Evolution of Fluid Flow.](https://arxiv.org/abs/1802.10123) Comput. Graph. Forum, 38, 71-82.*
@@ -251,6 +248,9 @@ simulation, vi-sual mapping, and view parameters
 #### Attention
 - 可解释性
 	>*Vashishth, S., Upadhyay, S., Tomar, G.S., & Faruqui, M. (2019). [Attention Interpretability Across NLP Tasks.](https://www.arxiv-vanity.com/papers/1909.11218/)*
+#### Transformer
+- Transformer
+	>*Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., & Polosukhin, I. (2017). [Attention Is All You Need.](https://arxiv.org/abs/1706.03762) NIPS.*
 #### Memory
 - Memory机制：attention中加入存储器层(Facebook)
 	>*Lample, G., Sablayrolles, A., Ranzato, M., Denoyer, L., & J'egou, H. (2019). [Large Memory Layers with Product Keys](https://arxiv.org/abs/1907.05242). ArXiv, abs/1907.05242.*
@@ -303,6 +303,17 @@ simulation, vi-sual mapping, and view parameters
 	向量场的旋度、散度的volume rendering和iso-surface，pathlines的可视化，FTLE的计算：[unbiased 蒙特卡洛渲染](#mcftle)
 - 生成objective vortex：通过调整成最优参考系
 	>*Günther, T., Gross, M.H., & Theisel, H. (2017). [Generic objective vortices for flow visualization.](https://cgl.ethz.ch/publications/papers/paperGun17c.php) ACM Trans. Graph., 36, 141:1-141:11.*
+	
+- 将unsteady的流场分解成steady的参考系和环境流
+	>*Rojo, I.B., & Gunther, T. (2019). [Vector Field Topology of Time-Dependent Flows in a Steady Reference Frame.](https://cgl.ethz.ch/publications/papers/paperIbr19c.php) IEEE transactions on visualization and computer graphics.*
+	
+	1) 对流场transform(包括标量和向量)
+	
+	2) 最小二乘求解最优参考系
+	
+	3) 计算得ambient flow/环境流
+	
+	4) 计算critical point，separatrices，vortex corelines
 #### FTLE
 - <span id="mcftle">MCFTLE</span>
 	>*T.G ̈ unther,A.Kuhn,andH.Theisel. [MCFTLE : Monte Carlo rendering of finite-time Lyapunov exponent fields.](https://people.inf.ethz.ch/~gutobia/publications/Guenther16EuroVisb.html) Computer Graphics Forum (Proc. EuroVis), 35(3):381–390, 2016.*
