@@ -2,8 +2,8 @@
 一些论文笔记，整理
 
 ## 目录
-- [RNN](#rnn)
-- [CNN](#cnn)
+- [一. RNN](#一.-rnn)
+- [二. CNN](#cnn)
 	- [经典网络结构](#经典网络结构)
 	- [风格迁移](#风格迁移)
 	- [Point Cloud](#Point-Cloud)
@@ -12,23 +12,25 @@
 	- [视频](#视频预测未来帧)
 	- [streamline](#提取流场streamline特征)
 	- [涡识别](#提取流场vortex)
-- [GAN](#gan)
+- [三. GAN](#gan)
 	- [Volume render](#volume)
 	- [图像生成](#gan图像生成)
   - [超分辨率](#超分辨率)
   - [3DGAN](#3dgan)
-- [NLP](#nlp)
+- [四. NLP](#nlp)
+	- [Attention](#attention)
+	- [Transformer](#transformer)
 	- [Memory机制](#memory)
-- [HPC](#hpc)
+- [五. HPC](#hpc)
 	- [并行粒子追踪](#并行粒子追踪)
-- [Flow visualization](#flow-visualization)
+- [六. Flow visualization](#flow-visualization)
 	- [FTLE](#ftle)
 	- [流体模拟](#fluid-simulation)
 
-### RNN
+### 一. RNN
 - 流场可视化：预测粒子跟踪中的**数据访问**模式（LSTM）
 
-  >*Hong, Fan & Zhang, Jiang & Yuan, Xiaoru. (2018). Access Pattern Learning with Long Short-Term Memory for Parallel Particle Tracing. 76-85. 10.1109/PacificVis.2018.00018.*
+  >*Hong, Fan & Zhang, Jiang & Yuan, Xiaoru. (2018). [Access Pattern Learning with Long Short-Term Memory for Parallel Particle Tracing.](http://vis.pku.edu.cn/research/publication/pacificvis18-dlprefetch.pdf) 76-85. 10.1109/PacificVis.2018.00018.*
 
 - <span id="tsr">流场可视化：TSR-TVD：流场时序的高分辨率</span>
   >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
@@ -36,9 +38,11 @@
   - 目标：对于两个时间步t,k之间的体数据，找到一个映射Φ，得到中间时间步的体数据
   - 网络结构RGN：RNN+GNN
   	- Generate：一个生成网络G(类似于bilstm的思想)
+	
 	a. 预测模型（biRNN）：前向预测（从t开始）和后向预测（从k开始）
+	
 	b. 融合模型：将前向后向的各个对应的时间步融合
-    	- Discriminator：一个判别模型D（二分类的CNN）
+	- Discriminator：一个判别模型D（二分类的CNN）
 		
 		区分出fake的体数据V
    - 3个loss funtion：（1）生成对抗loss（2）体数据和GroundTruth对比的损失（生成器尽可能的还原GT的体数据）（3）CNN中间层特征损失：		提取判别器D中的卷积层参数，使生成器生成的体数据在每一层都尽可能的贴近GroundTruth
