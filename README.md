@@ -2,7 +2,7 @@
 一些论文笔记，整理
 
 ## 目录
-- [一. RNN](#一.rnn)
+- [一. RNN](#一-rnn)
 - [二. CNN](#cnn)
 	- [经典网络结构](#经典网络结构)
 	- [风格迁移](#风格迁移)
@@ -27,7 +27,7 @@
 	- [FTLE](#ftle)
 	- [流体模拟](#fluid-simulation)
 
-### 一.RNN
+### 一. RNN
 - 流场可视化：预测粒子跟踪中的**数据访问**模式（LSTM）
 
   >*Hong, Fan & Zhang, Jiang & Yuan, Xiaoru. (2018). [Access Pattern Learning with Long Short-Term Memory for Parallel Particle Tracing.](http://vis.pku.edu.cn/research/publication/pacificvis18-dlprefetch.pdf) 76-85. 10.1109/PacificVis.2018.00018.*
