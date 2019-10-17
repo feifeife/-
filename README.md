@@ -3,29 +3,29 @@
 
 ## 目录
 - [一. RNN](#一-rnn)
-- [二. CNN](#cnn)
-	- [经典网络结构](#经典网络结构)
-	- [风格迁移](#风格迁移)
-	- [Point Cloud](#Point-Cloud)
-	- [目标检测](#目标检测)
-	- [结构分析](#cnn结构分析)
-	- [视频](#视频预测未来帧)
-	- [streamline](#提取流场streamline特征)
-	- [涡识别](#提取流场vortex)
-- [三. GAN](#gan)
-	- [Volume render](#volume)
-	- [图像生成](#gan图像生成)
-  - [超分辨率](#超分辨率)
-  - [3DGAN](#3dgan)
-- [四. NLP](#nlp)
-	- [Attention](#attention)
-	- [Transformer](#transformer)
-	- [Memory机制](#memory)
-- [五. HPC](#hpc)
+- [二. CNN](#二-cnn)
+	- [经典网络结构](#1-经典网络结构)
+	- [风格迁移](#2-风格迁移)
+	- [Point Cloud](#3-Point-Cloud)
+	- [目标检测](#4-目标检测)
+	- [结构分析](#5-cnn结构分析)
+	- [视频](#6-视频预测未来帧)
+	- [streamline](#7-提取流场streamline特征)
+	- [涡识别](#8-提取流场vortex)
+- [三. GAN](#三-gan)
+	- [Volume render](#1-volume)
+	- [图像生成](#2-gan图像生成)
+  - [超分辨率](#3-超分辨率)
+  - [3DGAN](#4-3dgan)
+- [四. NLP](#四-nlp)
+	- [Attention](#1-attention)
+	- [Transformer](#2-transformer)
+	- [Memory机制](#3-memory)
+- [五. HPC](#五-hpc)
 	- [并行粒子追踪](#并行粒子追踪)
-- [六. Flow visualization](#flow-visualization)
-	- [FTLE](#ftle)
-	- [流体模拟](#fluid-simulation)
+- [六. Flow visualization](#六-flow-visualization)
+	- [FTLE](#1-ftle)
+	- [流体模拟](#2-fluid-simulation)
 
 ### 一. RNN
 - 流场可视化：预测粒子跟踪中的**数据访问**模式（LSTM）
@@ -63,8 +63,8 @@
 - 预测内存存取模式，预取数据(LSTM)
   >*Hashemi, M., Swersky, K., Smith, J.A., Ayers, G., Litz, H., Chang, J., Kozyrakis, C.E., & Ranganathan, P. (2018). [Learning Memory Access Patterns](https://arxiv.org/pdf/1803.02329.pdf) ArXiv, abs/1803.02329.*
   
-### CNN
-#### 经典网络结构
+### 二. CNN
+#### 1. 经典网络结构
 - ResNet
 	>*He, K., Zhang, X., Ren, S., & Sun, J. (2015). [Deep Residual Learning for Image Recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)](https://arxiv.org/abs/1512.03385)[(code)](https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py), 770-778.*
 
@@ -88,12 +88,12 @@
 	
 	详解：https://blog.csdn.net/u014380165/article/details/75142664
 	
-#### 风格迁移
+#### 2. 风格迁移
 - <span id="perceptual">Perceptual Loss:风格迁移</span>
 	>*Johnson, J., Alahi, A., & Fei-Fei, L. (2016). [Perceptual Losses for Real-Time Style Transfer and Super-Resolution.](https://arxiv.org/abs/1603.08155) ECCV.*
 - <span id="deepae">deep VAE学习图像语义特征</span>
 	>*Hou, X., Shen, L., Sun, K., & Qiu, G. (2016). [Deep Feature Consistent Variational Autoencoder.](https://arxiv.org/abs/1610.00291) 2017 IEEE Winter Conference on Applications of Computer Vision (WACV), 1133-1141.*
-#### Point Cloud
+#### 3. Point Cloud
 Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 - 点云分类
 	>*Roveri, R., Rahmann, L., Öztireli, C., & Gross, M.H. (2018). [A Network Architecture for Point Cloud Classification via Automatic Depth Images Generation.](https://pdfs.semanticscholar.org/8348/589d78e6b7b9f8da5d5db9b5720dee0e79d5.pdf) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 4176-4184.*
@@ -101,7 +101,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	用PointNet将3D点云转化成2D深度图,后用ResNet50分类
 
 	详解：https://blog.csdn.net/cy13762633948/article/details/82780042
-#### 目标检测
+#### 4. 目标检测
 - Cascade R-CNN
 	>*Cai, Z., & Vasconcelos, N. (2017). [Cascade R-CNN: Delving Into High Quality Object Detection.](https://arxiv.org/abs/1712.00726) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 6154-6162.*
 	
@@ -116,7 +116,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 - CBNet：多模型特征融合
 	>*Liu, Yudong & Wang, Yongtao & Wang, Siwei & Liang, TingTing & Zhao, Qijie & Tang, Zhi & Ling, Haibin. (2019). [CBNet: A Novel Composite Backbone Network Architecture for Object Detection.](https://arxiv.org/abs/1909.03625v1)*
 
-#### CNN结构分析
+#### 5. CNN结构分析
 - 利用CNN中间层作为loss
 	>*Zhang, R., Isola, P., Efros, A.A., Shechtman, E., & Wang, O. (2018). [The Unreasonable Effectiveness of Deep Features as a Perceptual Metric](https://arxiv.org/abs/1801.03924?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+arxiv%2Fcs%2FCV+%28ArXiv.cs.CV%29). 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 586-595.*
   
@@ -124,12 +124,12 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	>*Geirhos, Robert & Rubisch, Patricia & Michaelis, Claudio & Bethge, Matthias & Wichmann, Felix & Brendel, Wieland. (2018). [ImageNet-trained CNNs are biased towards texture; increasing shape bias improves accuracy and robustness.](https://arxiv.org/abs/1811.12231) ICLR*
 	
 
-#### 视频预测未来帧
+#### 6. 视频预测未来帧
 - Deep Voxel Flow 
 	>*(oral)Liu, Z., Yeh, R.A., Tang, X., Liu, Y., & Agarwala, A. (2017). Video Frame Synthesis Using Deep Voxel Flow. 2017 IEEE International Conference on Computer Vision (ICCV), 4473-4481.*
   
   利用现有的video进行无监督的学习
-#### 提取流场streamline特征
+#### 7. 提取流场streamline特征
 - 流场可视化：Flownet：streamlines的聚类和选择（去噪）
   更好的呈现可视化的效果，防止重叠现象等
   >*Han, J., Tao, J., & Wang, C. (2018). FlowNet: [A Deep Learning Framework for Clustering and Selection of Streamlines and Stream Surfaces.](https://www3.nd.edu/~cwang11/research/tvcg19-flownet.pdf) IEEE transactions on visualization and computer graphics.*
@@ -139,7 +139,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
   得到**中间的特征向量表示**后，用t-SNE降维，用DBSCAN聚类
   
   如何生成中间的特征表示？？？（[3Dshape gan生成](#3dgan)）
-#### 提取流场vortex
+#### 8. 提取流场vortex
 - 学习unsteady场的最优参考系参数
 
 	> 1. *Kim, B., & Günther, T. (2019). [Robust Reference Frame Extraction from Unsteady 2D Vector Fields with Convolutional Neural Networks.](https://arxiv.org/abs/1903.10255) Comput. Graph. Forum,Eurovis 38, 285-295.*
@@ -164,7 +164,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	> 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1. *
 	- Step 1：用IVD方法给每个点打上标签，vortex：1，non-vertex：0
 	- Step 2：对于每个点，取一个15×15的patch，放进cnn训练，二分类确定这个点是否属于vortex
-### GAN
+### 三. GAN
 
 最新发展和应用 https://www.zhihu.com/question/52602529/answers/updated
 - <span id="gan">综述 : 损失函数、对抗架构、正则化、归一化和度量方法</span>
@@ -175,7 +175,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 - 条件转移GAN：更少的数据要求+更多分类
 	>*Wu, C., Wen, W., Chen, Y., & Li, H. (2019). [Conditional Transferring Features: Scaling GANs to Thousands of Classes with 30% Less High-quality Data for Training.] (https://www.arxiv-vanity.com/papers/1909.11308/) CVPR*
 
-#### VOLUME
+#### 1. VOLUME
 - INSITUNet:流场可视化图片生成(探索参数空间)
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
 simulation, vi-sual mapping, and view parameters
@@ -196,10 +196,10 @@ simulation, vi-sual mapping, and view parameters
 - 体数据渲染生成
   >*Berger, M., Li, J., & Levine, J.A. (2017). [A Generative Model for Volume Rendering.](https://arxiv.org/abs/1710.09545) IEEE Transactions on Visualization and Computer Graphics, 25, 1636-1650.*
 
-#### GAN图像生成
+#### 2. GAN图像生成
 - <span id="sngan">SN-GAN：谱归一化，解决训练不稳定</span>
 	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR*
-#### 超分辨率
+#### 3. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
 ##### 体数据的超分辨率
 - 体数据的上采样(CNN)
@@ -237,29 +237,29 @@ simulation, vi-sual mapping, and view parameters
   >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
 
 
-#### 3Dgan 
+#### 4. 3Dgan 
 
 - 生成3D物体的体数据
   >*Wu, J., Zhang, C., Xue, T., Freeman, W.T., & Tenenbaum, J.B. (2016). [Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling](http://3dgan.csail.mit.edu/) NIPS.*
   
   >*Mo, K., Guerrero, P., Yi, L., Su, H., Wonka, P., Mitra, N., & Guibas, L.J. (2019). [StructureNet: Hierarchical Graph Networks for 3D Shape Generation.](https://cs.stanford.edu/~kaichun/structurenet/) ArXiv, abs/1908.00575.*
   
-#### 预测视频的未来帧
+#### 5. 预测视频的未来帧
 
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
-### NLP
-#### Attention
+### 四. NLP
+#### 1. Attention
 - 可解释性
 	>*Vashishth, S., Upadhyay, S., Tomar, G.S., & Faruqui, M. (2019). [Attention Interpretability Across NLP Tasks.](https://www.arxiv-vanity.com/papers/1909.11218/)*
-#### Transformer
+#### 2. Transformer
 - Transformer
 	>*Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L., & Polosukhin, I. (2017). [Attention Is All You Need.](https://arxiv.org/abs/1706.03762) NIPS.*
-#### Memory
+#### 3. Memory
 - Memory机制：attention中加入存储器层(Facebook)
 	>*Lample, G., Sablayrolles, A., Ranzato, M., Denoyer, L., & J'egou, H. (2019). [Large Memory Layers with Product Keys](https://arxiv.org/abs/1907.05242). ArXiv, abs/1907.05242.*
 
-### HPC
+### 五. HPC
 
 - 对HPC中的异常进行可视化(转化成向量表示)
   >*Xie, C., Xu, W., & Mueller, K. (2018). A Visual Analytics Framework for the Detection of Anomalous Call Stack Trees in High Performance Computing Applications. IEEE Transactions on Visualization and Computer Graphics, 25, 215-224.*
@@ -299,7 +299,7 @@ simulation, vi-sual mapping, and view parameters
 		* 一个node = 一个task进程 （进程间通过MPI通信）= 16个core = 64个线程：一个主线程负责MPI通信，63个work线程负责计算
 		* Data parallelism：每个进程里有两组任务队列，work和send：主线程将send队列的任务送往目标进程去执行，计算线程计算work队列里的任务，如果particle超出该进程的数据范围，就创建一个相关任务加入相应目的地的send队列。
 
-### Flow Visualization
+### 六. Flow Visualization
 
 - 云层及风场可视化案例
 	>*Rimensberger, N., Gross, M.H., & Günther, T. (2019). [Visualization of Clouds and Atmospheric Air Flows.](https://pdfs.semanticscholar.org/90c2/369fc8aac8fed7a8b7818d32f1aee7571ee8.pdf?_ga=2.220039578.204005370.1571192150-1135356387.1566352454) IEEE Computer Graphics and Applications, 39, 12-25.*
@@ -318,12 +318,12 @@ simulation, vi-sual mapping, and view parameters
 	3) 计算得ambient flow/环境流
 	
 	4) 计算critical point，separatrices，vortex corelines
-#### FTLE
+#### 1. FTLE
 - <span id="mcftle">MCFTLE</span>
 	>*T.G ̈ unther,A.Kuhn,andH.Theisel. [MCFTLE : Monte Carlo rendering of finite-time Lyapunov exponent fields.](https://people.inf.ethz.ch/~gutobia/publications/Guenther16EuroVisb.html) Computer Graphics Forum (Proc. EuroVis), 35(3):381–390, 2016.*
 	>*Rojo, I.B., Groß, M., & Gonther, T. (2019). [Accelerated Monte Carlo Rendering of Finite-Time Lyapunov Exponents.](https://cgl.ethz.ch/publications/papers/paperIbr19b.php) IEEE transactions on visualization and computer graphics.*
 
-#### Fluid simulation
+#### 2. Fluid simulation
 - Deep Fluids:CNN-based 模拟流体 from parameters
 	>*Kim, B., Azevedo, V.C., Thürey, N., Kim, T., Gross, M.H., & Solenthaler, B. (2018). [Deep Fluids: A Generative Network for Parameterized Fluid Simulations.](https://cgl.ethz.ch/publications/papers/paperKim19a.php) Comput. Graph. Forum, 38, 59-70.*
 - Scala Flow:从视频流生成流体数据
