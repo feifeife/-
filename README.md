@@ -324,7 +324,24 @@ simulation, vi-sual mapping, and view parameters
 	>*Rojo, I.B., Groß, M., & Gonther, T. (2019). [Accelerated Monte Carlo Rendering of Finite-Time Lyapunov Exponents.](https://cgl.ethz.ch/publications/papers/paperIbr19b.php) IEEE transactions on visualization and computer graphics.*
 
 #### 2. Fluid simulation
-- Deep Fluids:CNN-based 模拟流体 from parameters
+- Deep Fluids:GAN+encoder-生成向量场 模拟流体 from parameters
 	>*Kim, B., Azevedo, V.C., Thürey, N., Kim, T., Gross, M.H., & Solenthaler, B. (2018). [Deep Fluids: A Generative Network for Parameterized Fluid Simulations.](https://cgl.ethz.ch/publications/papers/paperKim19a.php) Comput. Graph. Forum, 38, 59-70.*
+	
+	初始的向量场------(encoder)---->[参数向量化的向量场+每一步的输入参数向量(如烟源头的x坐标+宽度)]------(加了residual模块的CNN:stage之间深度不变=128,空间下采样/2)(等价于decoder)----->模拟生成每一个时间步的向量场
+
+	1) 训练一个encoder将向量场表示出n维参数向量**c**:(**z**(参数化的向量场)+**p**(输入参数))
+	
+	2) 从t=0开始,递归计算:将上一步的参数向量**c**和**p**的残差**Δp**拼接,作为输入**x**,输入全连接层
+	
+	3) 全连接层学习输出**z**的残差**Δz**,和上一步的参数化的向量场**z**t相加,得到**z**t+1
+	
+	4) 将**z**t+1和**p**t+1(已知)拼接得到**c**t+1,作为generator的输入
+	
+	5) generator生成t+1时刻的向量场
+	
+	- LOSS Function: 
+		- autoencoder的loss:encoding生成的参数p的L2损失(线性回归的标准loss)
+		- generator的loss:生成的向量场L1损失+向量场的散度的L1损失(控制不可压缩流场)
+		- 时间转移的损失:窗口大小为w=30内的每一个时间步的生成的**Δz**的L2损失的平均值
 - Scala Flow:从视频流生成流体数据
 	>*[ScalarFlow: A Large-Scale Volumetric Data Set of Real-world Scalar Transport Flows for Computer Animation and Machine Learning](https://ge.in.tum.de/publications/2019-tog-eckert/)*
