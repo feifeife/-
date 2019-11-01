@@ -158,6 +158,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	* Step 2：分类,识别不同特性的流场
 - CNN识别分类vortex（逆时针、顺时针）直接检测
 	> 3. *Bin, T.J. (2018). [CNN-based Flow Field Feature Visualization Method.](https://pdfs.semanticscholar.org/de16/9148f9c8484d175f92463af461a2bdfb3605.pdf) IJPE*
+	- Step1 : 对流场进行分割，找到critical point，即v=0的点所处的网格。
 	* input：用9×9×2的向量场，u,v双通道
 	* output：对vortex分类，分成顺时针、逆时针和普通场
 - CNN识别分类vortex，对每个点分类
