@@ -17,6 +17,7 @@
 	- [图像生成](#2-gan图像生成)
   - [超分辨率](#3-超分辨率)
   - [3DGAN](#4-3dgan)
+  - [视频预测](#5-预测视频的未来帧)
 - [四. NLP](#四-nlp)
 	- [Attention](#1-attention)
 	- [Transformer](#2-transformer)
@@ -175,6 +176,8 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	
 - 条件转移GAN：更少的数据要求+更多分类
 	>*Wu, C., Wen, W., Chen, Y., & Li, H. (2019). [Conditional Transferring Features: Scaling GANs to Thousands of Classes with 30% Less High-quality Data for Training.] (https://www.arxiv-vanity.com/papers/1909.11308/) CVPR*
+- BiGan提升
+	>*Pablo Sánchez-Martín, Pablo M. Olmos. (2019) [Improved BiGAN training with marginal likelihood equalization](https://arxiv.org/abs/1911.01425) Arxiv.*
 
 #### 1. VOLUME
 - INSITUNet:流场可视化图片生成(探索参数空间)
@@ -233,6 +236,13 @@ simulation, vi-sual mapping, and view parameters
   学习了cyclegan（风格迁移）中image to image的思想
 
   [知乎笔记](https://zhuanlan.zhihu.com/p/52237543)
+- 多帧图像的超分（HighRes-net）
+	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
+
+	Github:https://github.com/ElementAI/HighRes-net 多帧超分
+- 太阳磁图的超分辨率（使用HighRes-net）
+	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
+
 
 - 流场可视化：时序的超分辨率(RNN+GAN)
   >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
@@ -248,6 +258,7 @@ simulation, vi-sual mapping, and view parameters
 #### 5. 预测视频的未来帧
 
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
+>*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
 
 ### 四. NLP
 #### 1. Attention
