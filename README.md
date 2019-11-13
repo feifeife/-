@@ -110,9 +110,9 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	
 论文笔记：https://wanglichun.tech/algorithm/CascadeRCNN.html
 
-	 https://arleyzhang.github.io/articles/1c9cf9be/
+https://arleyzhang.github.io/articles/1c9cf9be/
 	 
-	 https://github.com/ming71/CV_PaperDaily/blob/master/CVPR/Cascade-R-CNN-Delving-into-High-Quality-Object-Detection.md
+https://github.com/ming71/CV_PaperDaily/blob/master/CVPR/Cascade-R-CNN-Delving-into-High-Quality-Object-Detection.md
 	 
 - CBNet：多模型特征融合
 	>*Liu, Yudong & Wang, Yongtao & Wang, Siwei & Liang, TingTing & Zhao, Qijie & Tang, Zhi & Ling, Haibin. (2019). [CBNet: A Novel Composite Backbone Network Architecture for Object Detection.](https://arxiv.org/abs/1909.03625v1)*
@@ -163,7 +163,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	* input：用9×9×2的向量场，u,v双通道
 	* output：对vortex分类，分成顺时针、逆时针和普通场
 - CNN识别分类vortex，对每个点分类
-	> 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1. *
+	> 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1.*
 	- Step 1：用IVD方法给每个点打上标签，vortex：1，non-vertex：0
 	- Step 2：对于每个点，取一个15×15的patch，放进cnn训练，二分类确定这个点是否属于vortex
 ### 三. GAN
@@ -209,11 +209,6 @@ simulation, vi-sual mapping, and view parameters
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
 
-- 时序流体数据tempoGAN
-  >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
-  
-  input：单时间步的低分辨率流体数据
-  
 - Point cloud 点云图的上采样(GAN)
   >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
 
@@ -243,9 +238,17 @@ simulation, vi-sual mapping, and view parameters
 - 太阳磁图的超分辨率（使用HighRes-net）
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
 
-
+##### 时序数据的超分辨率
+- 时序流体数据tempoGAN
+  >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
+  
+  input：单时间步的低分辨率流体数据
+  
 - 流场可视化：时序的超分辨率(RNN+GAN)
   >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
+  
+- 流场局部特征的动态演化过程（Density map）
+>*Chen, C., Wang, C., Bai, X., Zhang, P., & Li, C. (2019). [GenerativeMap: Visualization and Exploration of Dynamic Density Maps via Generative Learning Model.](https://pdfs.semanticscholar.org/60c6/192a1957ef176690e3d0299b71892f7b3768.pdf?_ga=2.160779069.1624041468.1573624621-1882078897.1570782246) IEEE transactions on visualization and computer graphics.*
 
 
 #### 4. 3Dgan 
