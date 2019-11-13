@@ -344,7 +344,7 @@ simulation, vi-sual mapping, and view parameters
 	>*Rojo, I.B., Groß, M., & Gonther, T. (2019). [Accelerated Monte Carlo Rendering of Finite-Time Lyapunov Exponents.](https://cgl.ethz.ch/publications/papers/paperIbr19b.php) IEEE transactions on visualization and computer graphics.*
 
 #### 2. Fluid simulation
-- Deep Fluids:GAN+encoder-生成**向量场** 模拟流体 from parameters
+- Deep Fluids:GAN+encoder-生成**向量场** 模拟流体 from parameters（采用BEGAN）
 	>*Kim, B., Azevedo, V.C., Thürey, N., Kim, T., Gross, M.H., & Solenthaler, B. (2018). [Deep Fluids: A Generative Network for Parameterized Fluid Simulations.](https://cgl.ethz.ch/publications/papers/paperKim19a.php) Comput. Graph. Forum, 38, 59-70.*
 	
 	初始的向量场------(encoder)---->[参数向量化的向量场+每一步的输入参数向量(如烟源头的x坐标+宽度)]---------(加了residual模块的CNN:stage之间深度不变=128,空间下采样/2)(等价于decoder)----->模拟生成每一个时间步的向量场
