@@ -36,17 +36,15 @@
 - <span id="tsr">流场可视化：TSR-TVD：流场时序的高分辨率</span>
   >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
   
-  - 目标：对于两个时间步t,k之间的体数据，找到一个映射Φ，得到中间时间步的体数据
-  - 网络结构RGN：RNN+GNN
-  	- Generate：一个生成网络G(类似于bilstm的思想)
-	
-	a. 预测模型（biRNN）：前向预测（从t开始）和后向预测（从k开始）
-	
-	b. 融合模型：将前向后向的各个对应的时间步融合
-	- Discriminator：一个判别模型D（二分类的CNN）
+	- 目标：对于两个时间步t,k之间的体数据，找到一个映射Φ，得到中间时间步的体数据
+	- 网络结构RGN：RNN+GNN
+  		- Generate：一个生成网络G(类似于bilstm的思想)
+			1. 预测模型（biRNN）：前向预测（从t开始）和后向预测（从k开始）
+			2. 融合模型：将前向后向的各个对应的时间步融合
+		- Discriminator：一个判别模型D（二分类的CNN）
 		
-		区分出fake的体数据V
-   - 3个loss funtion：（1）生成对抗loss（2）体数据和GroundTruth对比的损失（生成器尽可能的还原GT的体数据）（3）CNN中间层特征损失：		提取判别器D中的卷积层参数，使生成器生成的体数据在每一层都尽可能的贴近GroundTruth
+			区分出fake的体数据V
+	- 3个loss funtion：（1）生成对抗loss（2）体数据和GroundTruth对比的损失（生成器尽可能的还原GT的体数据）（3）CNN中间层特征损失：		提取判别器D中的卷积层参数，使生成器生成的体数据在每一层都尽可能的贴近GroundTruth
 
 - 流体可视化：预测流体**压力场p**的变化(RNN)
   >*Wiewel, S., Becher, M., & Thürey, N. (2018). [Latent Space Physics: Towards Learning the Temporal Evolution of Fluid Flow.](https://arxiv.org/abs/1802.10123) Comput. Graph. Forum, 38, 71-82.*
@@ -108,11 +106,11 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	
 	在提出候选框anchor box时，由于IoU（和GT的重叠部分）阈值设为0.5偏低，造成很多close false positive（稍微高于0.5，但是是负样本）重复无用的候选框，因此采用级联的方式逐步提升，在不同的阶段设置不同的阈值
 	
-论文笔记：https://wanglichun.tech/algorithm/CascadeRCNN.html
+	论文笔记：https://wanglichun.tech/algorithm/CascadeRCNN.html
 
-https://arleyzhang.github.io/articles/1c9cf9be/
+	https://arleyzhang.github.io/articles/1c9cf9be/
 	 
-https://github.com/ming71/CV_PaperDaily/blob/master/CVPR/Cascade-R-CNN-Delving-into-High-Quality-Object-Detection.md
+	https://github.com/ming71/CV_PaperDaily/blob/master/CVPR/Cascade-R-CNN-Delving-into-High-Quality-Object-Detection.md
 	 
 - CBNet：多模型特征融合
 	>*Liu, Yudong & Wang, Yongtao & Wang, Siwei & Liang, TingTing & Zhao, Qijie & Tang, Zhi & Ling, Haibin. (2019). [CBNet: A Novel Composite Backbone Network Architecture for Object Detection.](https://arxiv.org/abs/1909.03625v1)*
@@ -157,13 +155,15 @@ https://github.com/ming71/CV_PaperDaily/blob/master/CVPR/Cascade-R-CNN-Delving-i
 	* input:流场被分为三维网格，每个point都带有一个特征向量（类似RGB）：具有伽利略不变性的物理特征
 	* Step 1：Region Proposal：目标检测，得到候选框
 	* Step 2：分类,识别不同特性的流场
+- R-CNN：基于流线图（后续工作[GenerativeMap：动态演化](#generativemap)）
+	> 3. *X. Bai, C. Wang and C. Li, [A Streampath-Based RCNN Approach to Ocean Eddy Detection,](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8779643) in IEEE Access, vol. 7, pp. 106336-106345, 2019.*
 - CNN识别分类vortex（逆时针、顺时针）直接检测
-	> 3. *Bin, T.J. (2018). [CNN-based Flow Field Feature Visualization Method.](https://pdfs.semanticscholar.org/de16/9148f9c8484d175f92463af461a2bdfb3605.pdf) IJPE*
+	> 4. *Bin, T.J. (2018). [CNN-based Flow Field Feature Visualization Method.](https://pdfs.semanticscholar.org/de16/9148f9c8484d175f92463af461a2bdfb3605.pdf) IJPE*
 	- Step1 : 对流场进行分割，找到critical point，即v=0的点所处的网格。
 	* input：用9×9×2的向量场，u,v双通道
 	* output：对vortex分类，分成顺时针、逆时针和普通场
 - CNN识别分类vortex，对每个点分类
-	> 4. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1.*
+	> 5. *Deng, Liang & Wang, Yueqing & Liu, Yang & Wang, Fang & Li, Sikun & Liu, Jie. (2018). [A CNN-based vortex identification method.](https://sci-hub.tw/10.1007/s12650-018-0523-1#) Journal of Visualization. 22. 10.1007/s12650-018-0523-1.*
 	- Step 1：用IVD方法给每个点打上标签，vortex：1，non-vertex：0
 	- Step 2：对于每个点，取一个15×15的patch，放进cnn训练，二分类确定这个点是否属于vortex
 ### 三. GAN
@@ -245,11 +245,13 @@ simulation, vi-sual mapping, and view parameters
   input：单时间步的低分辨率流体数据
   
 - 流场可视化：时序的超分辨率(RNN+GAN)
-  >*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
+	>*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
   
-- 流场局部特征的动态演化过程（Density map）
->*Chen, C., Wang, C., Bai, X., Zhang, P., & Li, C. (2019). [GenerativeMap: Visualization and Exploration of Dynamic Density Maps via Generative Learning Model.](https://pdfs.semanticscholar.org/60c6/192a1957ef176690e3d0299b71892f7b3768.pdf?_ga=2.160779069.1624041468.1573624621-1882078897.1570782246) IEEE transactions on visualization and computer graphics.*
-
+- <span id="generativemap">流场局部特征的动态演化过程（BiGan：Density map）</span>
+	>*Chen, C., Wang, C., Bai, X., Zhang, P., & Li, C. (2019). [GenerativeMap: Visualization and Exploration of Dynamic Density Maps via Generative Learning Model.](https://pdfs.semanticscholar.org/60c6/192a1957ef176690e3d0299b71892f7b3768.pdf?_ga=2.160779069.1624041468.1573624621-1882078897.1570782246) IEEE transactions on visualization and computer graphics.*
+	* Step1 ：将局部密度图encode成latent vector
+	* Step2 ：对隐向量进行线性插值生成中间动态演变的过程
+	* Step3 ：将插值的隐向量decode成图像
 
 #### 4. 3Dgan 
 
@@ -261,6 +263,7 @@ simulation, vi-sual mapping, and view parameters
 #### 5. 预测视频的未来帧
 
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
+
 >*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
 
 ### 四. NLP
@@ -279,6 +282,7 @@ simulation, vi-sual mapping, and view parameters
 - 对HPC中的异常进行可视化(转化成向量表示)
   >*Xie, C., Xu, W., & Mueller, K. (2018). A Visual Analytics Framework for the Detection of Anomalous Call Stack Trees in High Performance Computing Applications. IEEE Transactions on Visualization and Computer Graphics, 25, 215-224.*
 #### 并行粒子追踪
+- Domain traversal:空间组织方式(Hierarchical PageMap)
 - 并行粒子追踪综述
 	>*Zhang, Jiang & Yuan, Xiaoru. (2018). [A survey of parallel particle tracing algorithms in flow visualization.](http://vis.pku.edu.cn/research/publication/jov18-pptsurvey.pdf) Journal of Visualization. 21. 10.1007/s12650-017-0470-2.*
 - CPU，I/O线程和计算线程混合
