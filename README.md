@@ -233,8 +233,9 @@ simulation, vi-sual mapping, and view parameters
   [知乎笔记](https://zhuanlan.zhihu.com/p/52237543)
 - 多帧图像的超分（HighRes-net）
 	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
-
-	Github:https://github.com/ElementAI/HighRes-net 多帧超分
+	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
+	
+	Github : https://github.com/ElementAI/HighRes-net 多帧超分
 - 太阳磁图的超分辨率（使用HighRes-net）
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
 
