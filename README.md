@@ -240,11 +240,11 @@ simulation, vi-sual mapping, and view parameters
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
 
 ##### 时序数据的超分辨率
-- 时序流体数据tempoGAN
+- 时序流体数据tempoGAN（using Conditional GAN）
   >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
-  
-  input：单时间步的低分辨率流体数据
-  
+
+  - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场
+  - output: 高分辨率的第t步的密度数据(64^3)
 - 流场可视化：时序的超分辨率(RNN+GAN)
 	>*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
   
