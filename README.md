@@ -240,20 +240,28 @@ simulation, vi-sual mapping, and view parameters
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
 
 ##### 时序数据的超分辨率
-- 时序流体数据tempoGAN（using Conditional GAN & Unet）
+- **SR**时序流体数据tempoGAN（using Conditional GAN & 最近邻插值）
   >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
 
   - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场
   - output: 高分辨率的第t步的密度数据(64^3)
-- 流场可视化：时序的超分辨率(RNN+GAN)
+  - 网络架构：
+  	- 最近邻插值作为上采样方法（而不是反卷积，基于Deconvolution and Checkerboard Artifacts：因为反卷积和sub-pixel会产生重叠）
+  	- generator采用全卷积层（可以任意size输入）residual block（尝试过U-Net）
+	- discriminator采用卷积+Leakyrelu+全连接（输出score）
+- TSR-TVD : 时序的超分辨率(RNN+GAN)
 	>*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
   
-- <span id="generativemap">流场局部特征的动态演化过程（BiGan：Density map）</span>
+- <span id="generativemap">GenerativeMap : 流场局部特征的动态演化过程（BiGan：Density map）</span>
 	>*Chen, C., Wang, C., Bai, X., Zhang, P., & Li, C. (2019). [GenerativeMap: Visualization and Exploration of Dynamic Density Maps via Generative Learning Model.](https://pdfs.semanticscholar.org/60c6/192a1957ef176690e3d0299b71892f7b3768.pdf?_ga=2.160779069.1624041468.1573624621-1882078897.1570782246) IEEE transactions on visualization and computer graphics.*
 	* Step1 ：将局部密度图encode成latent vector
 	* Step2 ：对隐向量进行线性插值生成中间动态演变的过程
 	* Step3 ：将插值的隐向量decode成图像
-
+	- BiGAN结构：
+	
+	分别训练decoder：假分布z--->假数据x和encoder：真数据x---->真分布z 
+	
+	再训练discriminator区分这两个对
 #### 4. 3Dgan 
 
 - 生成3D物体的体数据
@@ -344,7 +352,7 @@ simulation, vi-sual mapping, and view parameters
 	>*Rojo, I.B., Groß, M., & Gonther, T. (2019). [Accelerated Monte Carlo Rendering of Finite-Time Lyapunov Exponents.](https://cgl.ethz.ch/publications/papers/paperIbr19b.php) IEEE transactions on visualization and computer graphics.*
 
 #### 2. Fluid simulation
-- Deep Fluids:降噪自编码器-生成**向量场** 模拟流体 from parameters
+- Deep Fluids : 降噪自编码器-生成**向量场** 模拟流体 from parameters
 	>*Kim, B., Azevedo, V.C., Thürey, N., Kim, T., Gross, M.H., & Solenthaler, B. (2018). [Deep Fluids: A Generative Network for Parameterized Fluid Simulations.](https://cgl.ethz.ch/publications/papers/paperKim19a.php) Comput. Graph. Forum, 38, 59-70.*
 	
 	初始的向量场------(encoder)---->[参数向量化的向量场+每一步的输入参数向量(如烟源头的x坐标+宽度)]---------(加了residual模块的CNN:stage之间深度不变=128,空间上采样 * 2)(等价于decoder)----->模拟生成每一个时间步的向量场
