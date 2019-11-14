@@ -240,7 +240,7 @@ simulation, vi-sual mapping, and view parameters
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
 
 ##### 时序数据的超分辨率
-- 时序流体数据tempoGAN（using Conditional GAN）
+- 时序流体数据tempoGAN（using Conditional GAN & Unet）
   >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
 
   - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场
