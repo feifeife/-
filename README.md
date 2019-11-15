@@ -226,7 +226,23 @@ simulation, vi-sual mapping, and view parameters
 - 无监督分辨率提升（CNN）
   >*Lugmayr, Andreas et al. (2019).[Unsupervised Learning for Real-World Super-Resolution](https://128.84.21.199/abs/1909.09629) ICCV*
 
-- 单图像无监督的退化学习 （GAN）
+###### 单图像学习 （GAN）
+对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
+
+- ZSSR : ZeroShot Super Resolution
+	>*A. Shocher, N. Cohen, and M. Irani, [zero-shot super-resolution using deep internal learning,](https://arxiv.org/abs/1712.06087) inCVPR, 2018.*
+	
+	GitHub : https://github.com/assafshocher/ZSSR
+- (oral)InGAN
+	>*Shocher, A., Bagon, S., Isola, P., & Irani, M. (2018). [InGAN: Capturing and Remapping the "DNA" of a Natural Image.](http://www.wisdom.weizmann.ac.il/~vision/ingan/) in ICCV 2019*
+
+	GitHub : https://github.com/assafshocher/InGAN
+- (BestPaper)SinGAN
+	>*Shaham, Tamar & Dekel, Tali & Michaeli, Tomer. (2019). [SinGAN: Learning a Generative Model from a Single Natural Image.](http://webee.technion.ac.il/people/tomermic/SinGAN/SinGAN.htm) in ICCV 2019*
+	
+	GitHub : https://github.com/tamarott/SinGAN
+	
+- 
   >*Zhao, T., Ren, W., Zhang, C., Ren, D., & Hu, Q. (2018). [Unsupervised Degradation Learning for Single Image Super-Resolution](https://arxiv.org/abs/1812.04240v1). CVPR, abs/1812.04240.*
   学习了cyclegan（风格迁移）中image to image的思想
 
