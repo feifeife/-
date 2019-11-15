@@ -205,14 +205,14 @@ simulation, vi-sual mapping, and view parameters
 	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR*
 #### 3. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
-##### 体数据的超分辨率
+##### 3.1 体数据的超分辨率
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
 
 - Point cloud 点云图的上采样(GAN)
   >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
 
-##### 图片的超分辨率
+##### 3.2 图片的超分辨率
 - SRCNN（CNN）
   >*Dong, Chao & Loy, Chen Change & He, Kaiming & Tang, Xiaoou. (2014). [Image Super-Resolution Using Deep Convolutional Networks.](https://arxiv.org/pdf/1501.00092.pdf) IEEE Transactions on Pattern Analysis and Machine Intelligence. 38. 10.1109/TPAMI.2015.2439281.*
 - <span id="srgan">SRGAN</span>
@@ -225,19 +225,25 @@ simulation, vi-sual mapping, and view parameters
   知乎笔记：https://zhuanlan.zhihu.com/p/35955531
 - 无监督分辨率提升（CNN）
   >*Lugmayr, Andreas et al. (2019).[Unsupervised Learning for Real-World Super-Resolution](https://128.84.21.199/abs/1909.09629) ICCV*
-
-###### 单图像学习 （GAN）
+- 多帧图像的超分（HighRes-net）
+	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
+	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
+	
+	Github : https://github.com/ElementAI/HighRes-net 多帧超分
+- 太阳磁图的超分辨率（使用HighRes-net）
+	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
+###### 3.2.1 单图像学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
 - ZSSR : ZeroShot Super Resolution
 	>*A. Shocher, N. Cohen, and M. Irani, [zero-shot super-resolution using deep internal learning,](https://arxiv.org/abs/1712.06087) inCVPR, 2018.*
 	
 	GitHub : https://github.com/assafshocher/ZSSR
-- (oral)InGAN
+- (oral) InGAN
 	>*Shocher, A., Bagon, S., Isola, P., & Irani, M. (2018). [InGAN: Capturing and Remapping the "DNA" of a Natural Image.](http://www.wisdom.weizmann.ac.il/~vision/ingan/) in ICCV 2019*
 
 	GitHub : https://github.com/assafshocher/InGAN
-- (BestPaper)SinGAN
+- (BestPaper) SinGAN
 	>*Shaham, Tamar & Dekel, Tali & Michaeli, Tomer. (2019). [SinGAN: Learning a Generative Model from a Single Natural Image.](http://webee.technion.ac.il/people/tomermic/SinGAN/SinGAN.htm) in ICCV 2019*
 	
 	GitHub : https://github.com/tamarott/SinGAN
@@ -247,15 +253,9 @@ simulation, vi-sual mapping, and view parameters
   学习了cyclegan（风格迁移）中image to image的思想
 
   [知乎笔记](https://zhuanlan.zhihu.com/p/52237543)
-- 多帧图像的超分（HighRes-net）
-	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
-	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
-	
-	Github : https://github.com/ElementAI/HighRes-net 多帧超分
-- 太阳磁图的超分辨率（使用HighRes-net）
-	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
 
-##### 时序数据的超分辨率
+
+##### 3.3 时序数据的超分辨率
 - **SR**时序流体数据tempoGAN（using Conditional GAN & 最近邻插值）
   >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
 
