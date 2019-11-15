@@ -232,7 +232,7 @@ simulation, vi-sual mapping, and view parameters
 	Github : https://github.com/ElementAI/HighRes-net 多帧超分
 - 太阳磁图的超分辨率（使用HighRes-net）
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
-###### 3.2.1 单图像学习 （GAN）
+##### 3.2.1 单图像学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
 - ZSSR : ZeroShot Super Resolution
