@@ -215,11 +215,19 @@ simulation, vi-sual mapping, and view parameters
 	>*Weiss, S., Chu, M., Thürey, N., & Westermann, R. (2019). [Volumetric Isosurface Rendering with Deep Learning-Based Super-Resolution.](https://arxiv.org/abs/1906.06520) ArXiv, abs/1906.06520.*
 
 	采用[FRVSR-Net](#frvsr)的网络结构，全卷积网络
+	
+	Github : https://github.com/shamanDevel/IsosurfaceSuperresolution
 
 
 ##### 3.2 图片的超分辨率
 - SRCNN（CNN）
   >*Dong, Chao & Loy, Chen Change & He, Kaiming & Tang, Xiaoou. (2014). [Image Super-Resolution Using Deep Convolutional Networks.](https://arxiv.org/pdf/1501.00092.pdf) IEEE Transactions on Pattern Analysis and Machine Intelligence. 38. 10.1109/TPAMI.2015.2439281.*
+- <span id="enhancenet">EnhanceNet(CNN)</span>
+	>*Sajjadi, Mehdi S. M. & Schölkopf, Bernhard & Hirsch, Michael. (2016). [EnhanceNet: Single Image Super-Resolution through Automated Texture Synthesis.](https://arxiv.org/abs/1612.07919)*
+
+	提出不同于传统MSE的损失函数：perceptual loss+texture loss+Adversarial loss
+	
+	GitHub : https://github.com/msmsajjadi/EnhanceNet-Code
 - <span id="srgan">SRGAN</span>
   >*Ledig, C., Theis, L., Huszar, F., Caballero, J., Cunningham, A., Acosta, A., Aitken, A., Tejani, A., Totz, J., Wang, Z., & Shi, W. (2016). P[Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)2017 IEEE (CVPR), 105-114.*
 - ESRGAN
@@ -255,7 +263,7 @@ simulation, vi-sual mapping, and view parameters
 - <span id="FRVSR">多帧图像超分 : FRVSR-Net</span>
 	>*M. S. Sajjadi, R. Vemulapalli, and M. Brown. [Frame-recurrent video super-resolution.](https://arxiv.org/abs/1801.04590) In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 6626–6634, 2018.*
 	
-	SRNet采用EnhanceNet
+	SRNet采用[EnhanceNet](#enhancenet)
 	
 - 多帧图像的超分（HighRes-net）
 	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
