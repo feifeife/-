@@ -205,10 +205,13 @@ simulation, vi-sual mapping, and view parameters
 	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR*
 #### 3. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
-##### 3.1 体数据的超分辨率
+##### 3.1 Volume&isosurface超分辨率
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
+- isosurface
+	>*Weiss, S., Chu, M., Thürey, N., & Westermann, R. (2019). [Volumetric Isosurface Rendering with Deep Learning-Based Super-Resolution.](https://arxiv.org/abs/1906.06520) ArXiv, abs/1906.06520.*
 
+	采用[FRVSR-Net](#frvsr)的网络结构，全卷积网络
 - Point cloud 点云图的上采样(GAN)
   >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
 
@@ -223,15 +226,7 @@ simulation, vi-sual mapping, and view parameters
   >*Wang, T., Liu, M., Zhu, J., Tao, A., Kautz, J., & Catanzaro, B. (2017). [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs.](https://arxiv.org/abs/1711.11585) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 8798-8807.*
   
   知乎笔记：https://zhuanlan.zhihu.com/p/35955531
-- 无监督分辨率提升（CNN）
-  >*Lugmayr, Andreas et al. (2019).[Unsupervised Learning for Real-World Super-Resolution](https://128.84.21.199/abs/1909.09629) ICCV*
-- 多帧图像的超分（HighRes-net）
-	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
-	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
-	
-	Github : https://github.com/ElementAI/HighRes-net 多帧超分
-- 太阳磁图的超分辨率（使用HighRes-net）
-	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*
+
 ##### 3.2.1 单图像学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
@@ -247,7 +242,8 @@ simulation, vi-sual mapping, and view parameters
 	>*Shaham, Tamar & Dekel, Tali & Michaeli, Tomer. (2019). [SinGAN: Learning a Generative Model from a Single Natural Image.](http://webee.technion.ac.il/people/tomermic/SinGAN/SinGAN.htm) in ICCV 2019*
 	
 	GitHub : https://github.com/tamarott/SinGAN
-	
+- 无监督分辨率提升（CNN）
+  >*Lugmayr, Andreas et al. (2019).[Unsupervised Learning for Real-World Super-Resolution](https://128.84.21.199/abs/1909.09629) ICCV*	
 - 
   >*Zhao, T., Ren, W., Zhang, C., Ren, D., & Hu, Q. (2018). [Unsupervised Degradation Learning for Single Image Super-Resolution](https://arxiv.org/abs/1812.04240v1). CVPR, abs/1812.04240.*
   学习了cyclegan（风格迁移）中image to image的思想
@@ -256,8 +252,20 @@ simulation, vi-sual mapping, and view parameters
 
 
 ##### 3.3 时序数据的超分辨率
+- <span id="FRVSR">多帧图像超分 : FRVSR-Net</span>
+	>*M. S. Sajjadi, R. Vemulapalli, and M. Brown. [Frame-recurrent video super-resolution.](https://arxiv.org/abs/1801.04590) In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 6626–6634, 2018.*
+	
+	SRNet采用EnhanceNet
+	
+- 多帧图像的超分（HighRes-net）
+	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
+	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
+	
+	Github : https://github.com/ElementAI/HighRes-net 多帧超分
+- 太阳磁图的超分辨率（使用HighRes-net）
+	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*	
 - **SR**时序流体数据tempoGAN（using Conditional GAN & 最近邻插值）
-  >*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
+	>*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
 
   - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场
   - output: 高分辨率的第t步的密度数据(64^3)
