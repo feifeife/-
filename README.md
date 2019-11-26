@@ -100,6 +100,9 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	用PointNet将3D点云转化成2D深度图,后用ResNet50分类
 
 	详解：https://blog.csdn.net/cy13762633948/article/details/82780042
+
+- Point cloud 点云图的上采样(GAN)
+  >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
 #### 4. 目标检测
 - Cascade R-CNN
 	>*Cai, Z., & Vasconcelos, N. (2017). [Cascade R-CNN: Delving Into High Quality Object Detection.](https://arxiv.org/abs/1712.00726) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 6154-6162.*
@@ -212,8 +215,7 @@ simulation, vi-sual mapping, and view parameters
 	>*Weiss, S., Chu, M., Thürey, N., & Westermann, R. (2019). [Volumetric Isosurface Rendering with Deep Learning-Based Super-Resolution.](https://arxiv.org/abs/1906.06520) ArXiv, abs/1906.06520.*
 
 	采用[FRVSR-Net](#frvsr)的网络结构，全卷积网络
-- Point cloud 点云图的上采样(GAN)
-  >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
+
 
 ##### 3.2 图片的超分辨率
 - SRCNN（CNN）
@@ -227,7 +229,7 @@ simulation, vi-sual mapping, and view parameters
   
   知乎笔记：https://zhuanlan.zhihu.com/p/35955531
 
-##### 3.2.1 单图像学习 （GAN）
+##### 3.2.1 无监督或zero shot学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
 - ZSSR : ZeroShot Super Resolution
@@ -249,9 +251,7 @@ simulation, vi-sual mapping, and view parameters
   学习了cyclegan（风格迁移）中image to image的思想
 
   [知乎笔记](https://zhuanlan.zhihu.com/p/52237543)
-
-
-##### 3.3 时序数据的超分辨率
+##### 3.2.2 多帧图像的超分辨率
 - <span id="FRVSR">多帧图像超分 : FRVSR-Net</span>
 	>*M. S. Sajjadi, R. Vemulapalli, and M. Brown. [Frame-recurrent video super-resolution.](https://arxiv.org/abs/1801.04590) In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 6626–6634, 2018.*
 	
@@ -264,6 +264,8 @@ simulation, vi-sual mapping, and view parameters
 	Github : https://github.com/ElementAI/HighRes-net 多帧超分
 - 太阳磁图的超分辨率（使用HighRes-net）
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*	
+##### 3.3 时序数据的超分辨率
+
 - **SR**时序流体数据tempoGAN（using Conditional GAN & 最近邻插值）
 	>*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
 
