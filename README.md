@@ -134,7 +134,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 #### 7. 提取流场streamline特征
 - 流场可视化：Flownet：streamlines的聚类和选择（去噪）
   更好的呈现可视化的效果，防止重叠现象等
-  >*Han, J., Tao, J., & Wang, C. (2018). FlowNet: [A Deep Learning Framework for Clustering and Selection of Streamlines and Stream Surfaces.](https://www3.nd.edu/~cwang11/research/tvcg19-flownet.pdf) IEEE transactions on visualization and computer graphics.*
+  >*Han, J., Tao, J., & Wang, C. (2018). FlowNet: [A Deep Learning Framework for Clustering and Selection of Streamlines and Stream Surfaces.](https://pdfs.semanticscholar.org/d196/cb800c32afaebf2933f86f4fe1ab8b11e87b.pdf?_ga=2.34339045.533564957.1574860954-1135356387.1566352454) IEEE transactions on visualization and computer graphics.*
   
   将streamlines转化成体数据->输入3DCNN->encoder->latent value vector(特征向量)->decoder->生成体数据->与原数据计算loss
   
