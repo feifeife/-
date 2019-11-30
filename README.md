@@ -211,10 +211,18 @@ simulation, vi-sual mapping, and view parameters
 ##### 3.1 Volume&isosurface超分辨率
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
-- isosurface
+- Isosurface
 	>*Weiss, S., Chu, M., Thürey, N., & Westermann, R. (2019). [Volumetric Isosurface Rendering with Deep Learning-Based Super-Resolution.](https://arxiv.org/abs/1906.06520) ArXiv, abs/1906.06520.*
-
+	
+	training data : LR输入是通过raytracer直接得到的render数据（低精度+高精度），而不是通过SR下采样的，因此输入非常noise并给任务提出了很大的困难。
+	
+	跑了500个序列（每个序列10帧）的不同相机角度的render，低精度的128\*128,再将其随机截取到32\*32作为training data，label是计算得到的Ambient occlusion
+	
+	加入temporal coherence loss
+	
 	采用[FRVSR-Net](#frvsr)的网络结构，全卷积网络
+	
+	User case：remote vis（只传LR render，用模型进行上采样）/In situ vis(只能存某几个时间步的data，对中间缺少的帧进行插值)/focus+context volume visualization
 	
 	Github : https://github.com/shamanDevel/IsosurfaceSuperresolution
 
@@ -236,7 +244,12 @@ simulation, vi-sual mapping, and view parameters
   >*Wang, T., Liu, M., Zhu, J., Tao, A., Kautz, J., & Catanzaro, B. (2017). [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs.](https://arxiv.org/abs/1711.11585) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 8798-8807.*
   
   知乎笔记：https://zhuanlan.zhihu.com/p/35955531
-
+- DUpsampling : 超越双线性插值
+	>*Tian, Zhi & Shen, Chunhua & Tong, He & Yan, Youliang. (2019). [Decoders Matter for Semantic Segmentation: Data-Dependent Decoding Enables Flexible Feature Aggregation.](https://arxiv.org/abs/1903.02120)*
+	
+	Github ： https://github.com/LinZhuoChen/DUpsampling non-official
+	
+	笔记：https://www.zybuluo.com/Team/note/1442573
 ##### 3.2.1 无监督或zero shot学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
@@ -274,15 +287,28 @@ simulation, vi-sual mapping, and view parameters
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*	
 ##### 3.3 时序数据的超分辨率
 
-- **SR**时序流体数据tempoGAN（using Conditional GAN & 最近邻插值）
+- **SR**时序流体数据tempoGAN（using **Conditional GAN** & 最近邻插值）
 	>*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
+	免去了物理模拟时需要一步步进行temporal advect的情况，只需要输入一帧低精度的x，就可以生成一系列高精度的yt-1~yt+1
 
-  - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场
+	涡流运动的高精度可能会有多个版本，只要满足参考数据的时空分布就是一个可行解。
+	
+	training data：x是HR的y经过下采样的数据
+	
+	test data：是同一个模拟但训练集中没有的不同参数的数据LR+HRpairs
+
+  - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场(作为条件输入去推断密度)
   - output: 高分辨率的第t步的密度数据(64^3)
   - 网络架构：
-  	- 最近邻插值作为上采样方法（而不是反卷积，基于Deconvolution and Checkerboard Artifacts：因为反卷积和sub-pixel会产生重叠）
+  	- 最近邻插值作为上采样方法（而不是反卷积，基于[Deconvolution and Checkerboard Artifacts](https://distill.pub/2016/deconv-checkerboard/)：因为反卷积和sub-pixel会产生重叠）
   	- generator采用全卷积层（可以任意size输入）residual block（尝试过U-Net）
 	- discriminator采用卷积+Leakyrelu+全连接（输出score）
+	
+- Multi-Pass GAN
+	>*Werhahn, M., Xie, Y., Chu, M., & Thürey, N. (2019). [A Multi-Pass GAN for Fluid Flow Super-Resolution.](https://arxiv.org/abs/1906.01689) PACMCGIT, 2, 10:1-10:21.*
+	- 更高的SR倍数
+	- 将XY平面slice和Z轴分别训练，减少时间
+	- 有temporal coherence
 - TSR-TVD : 时序的超分辨率(RNN+GAN)
 	>*Han, J., & Wang, C. (2019). [TSR-TVD: Temporal Super-Resolution for Time-Varying Data Analysis and Visualization ](https://www3.nd.edu/~cwang11/research/vis19-tsr.pdf). IEEE TVCG.*
   
@@ -388,6 +414,9 @@ simulation, vi-sual mapping, and view parameters
 #### 2. Fluid simulation
 - Deep Fluids : 降噪自编码器-生成**向量场** 模拟流体 from parameters
 	>*Kim, B., Azevedo, V.C., Thürey, N., Kim, T., Gross, M.H., & Solenthaler, B. (2018). [Deep Fluids: A Generative Network for Parameterized Fluid Simulations.](https://cgl.ethz.ch/publications/papers/paperKim19a.php) Comput. Graph. Forum, 38, 59-70.*
+	参数生成向量场，training data是运行的一系列不同参数的模拟
+	
+	test data : 训练集中没有出现过的参数
 	
 	初始的向量场------(encoder)---->[参数向量化的向量场+每一步的输入参数向量(如烟源头的x坐标+宽度)]---------(加了residual模块的CNN:stage之间深度不变=128,空间上采样 * 2)(等价于decoder)----->模拟生成每一个时间步的向量场
 
