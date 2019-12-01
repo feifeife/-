@@ -289,6 +289,7 @@ simulation, vi-sual mapping, and view parameters
 
 - **SR**时序流体数据tempoGAN（using **Conditional GAN** & 最近邻插值）
 	>*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
+	
 	免去了物理模拟时需要一步步进行temporal advect的情况，只需要输入一帧低精度的x，就可以生成一系列高精度的yt-1~yt+1
 
 	涡流运动的高精度可能会有多个版本，只要满足参考数据的时空分布就是一个可行解。
@@ -297,14 +298,15 @@ simulation, vi-sual mapping, and view parameters
 	
 	test data：是同一个模拟但训练集中没有的不同参数的数据LR+HRpairs
 
-  - input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场(作为条件输入去推断密度)
-  - output: 高分辨率的第t步的密度数据(64^3)
-  - 网络架构：
-  	- 最近邻插值作为上采样方法（而不是反卷积，基于[Deconvolution and Checkerboard Artifacts](https://distill.pub/2016/deconv-checkerboard/)：因为反卷积和sub-pixel会产生重叠）
-  	- generator采用全卷积层（可以任意size输入）residual block（尝试过U-Net）
-	- discriminator采用卷积+Leakyrelu+全连接（输出score）
-	
-- Multi-Pass GAN
+	- input：单时间步第t步的低分辨率流体的密度数据(16^3)+速度场+旋度场(作为条件输入去推断密度)
+	- output: 高分辨率的第t步的密度数据(64^3)
+	- 网络架构：
+		- 最近邻插值作为上采样方法（而不是反卷积，基于[Deconvolution and Checkerboard Artifacts](https://distill.pub/2016/deconv-checkerboard/)：因为反卷积和sub-pixel会产生重叠）
+		- generator采用全卷积层（可以任意size输入）residual block（尝试过U-Net）
+		- discriminator采用卷积+Leakyrelu+全连接（输出score）
+	- Loss Function：
+		- adversarial loss + feature loss + temporal loss
+		- Multi-Pass GAN
 	>*Werhahn, M., Xie, Y., Chu, M., & Thürey, N. (2019). [A Multi-Pass GAN for Fluid Flow Super-Resolution.](https://arxiv.org/abs/1906.01689) PACMCGIT, 2, 10:1-10:21.*
 	- 更高的SR倍数
 	- 将XY平面slice和Z轴分别训练，减少时间
