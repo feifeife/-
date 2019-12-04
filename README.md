@@ -288,7 +288,7 @@ simulation, vi-sual mapping, and view parameters
 	>*M. S. Sajjadi, R. Vemulapalli, and M. Brown. [Frame-recurrent video super-resolution.](https://arxiv.org/abs/1801.04590) In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 6626–6634, 2018.*
 	
 	SRNet采用[EnhanceNet](#enhancenet)
-	
+
 - 多帧图像的超分（HighRes-net）
 	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
 	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
@@ -343,7 +343,10 @@ simulation, vi-sual mapping, and view parameters
   >*Mo, K., Guerrero, P., Yi, L., Su, H., Wonka, P., Mitra, N., & Guibas, L.J. (2019). [StructureNet: Hierarchical Graph Networks for 3D Shape Generation.](https://cs.stanford.edu/~kaichun/structurenet/) ArXiv, abs/1908.00575.*
   
 #### 5. 预测视频的未来帧
-
+- <span id="videogradient">视频预测Lecun(GAN)</span>
+	>*MATHIEU M., COUPRIE C., LECUN Y.: [Deep multi-scale video prediction beyond mean square error.](https://arxiv.org/abs/1511.05440) arXiv:1511.05440. 4*
+	
+	采用梯度损失
 >*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
 >*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
@@ -445,7 +448,7 @@ simulation, vi-sual mapping, and view parameters
 	
 	- LOSS Function: 
 		- autoencoder的loss:encoding生成的参数p的L2损失(线性回归的标准loss)
-		- generator的loss:生成的向量场L1损失+向量场的散度的L1损失(控制不可压缩流场)
+		- generator的loss:生成的向量场L1损失(对于不可压缩流场采用向量场的旋度) + 向量场的梯度的L1损失(类似的梯度loss同于[lecun的video prediction论文中(2015)](#videogradient)中)
 		- 时间转移的损失:窗口大小为w=30内的每一个时间步的生成的**Δz**的L2损失的平均值
 - Scala Flow:从视频流生成流体数据
 	>*[ScalarFlow: A Large-Scale Volumetric Data Set of Real-world Scalar Transport Flows for Computer Animation and Machine Learning](https://ge.in.tum.de/publications/2019-tog-eckert/)*
