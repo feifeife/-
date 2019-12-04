@@ -222,14 +222,14 @@ simulation, vi-sual mapping, and view parameters
 ##### 3.1 Volume&isosurface超分辨率
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
-- Isosurface
+- Isosurface（CNN）
 	>*Weiss, S., Chu, M., Thürey, N., & Westermann, R. (2019). [Volumetric Isosurface Rendering with Deep Learning-Based Super-Resolution.](https://arxiv.org/abs/1906.06520) ArXiv, abs/1906.06520.*
 	
 	training data : LR输入是通过raytracer直接得到的render数据（低精度+高精度），而不是通过SR下采样的，因此输入非常noise并给任务提出了很大的困难。
 	
 	跑了500个序列（每个序列10帧）的不同相机角度的render，低精度的128\*128,再将其随机截取到32\*32作为training data，label是计算得到的Ambient occlusion
 	
-	加入temporal coherence loss
+	loss function : mse loss + perceptual loss(pretrained VGG的隐藏层feature) + temporal coherence loss
 	
 	采用[FRVSR-Net](#frvsr)的网络结构，全卷积网络
 	
@@ -316,8 +316,8 @@ simulation, vi-sual mapping, and view parameters
 		- generator采用全卷积层（可以任意size输入）residual block（尝试过U-Net）
 		- discriminator采用卷积+Leakyrelu+全连接（输出score）
 	- Loss Function：
-		- adversarial loss + feature loss + temporal loss
-		- Multi-Pass GAN
+		- adversarial loss + feature loss(自身的discriminator的隐藏层) + temporal loss
+- Multi-Pass GAN
 	>*Werhahn, M., Xie, Y., Chu, M., & Thürey, N. (2019). [A Multi-Pass GAN for Fluid Flow Super-Resolution.](https://arxiv.org/abs/1906.01689) PACMCGIT, 2, 10:1-10:21.*
 	- 更高的SR倍数
 	- 将XY平面slice和Z轴分别训练，减少时间
