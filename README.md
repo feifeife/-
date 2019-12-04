@@ -141,6 +141,17 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
   得到**中间的特征向量表示**后，用t-SNE降维，用DBSCAN聚类
   
   如何生成中间的特征表示？？？（[3Dshape gan生成](#3dgan)）
+  
+- 流场压缩和重建
+	>*Han, Jun & Tao, Jun & Zheng, Hao & Guo, Hanqi & Chen, Danny & Wang, Chaoli. (2019). [Flow Field Reduction Via Reconstructing Vector Data From 3-D Streamlines Using Deep Learning.](https://www3.nd.edu/~cwang11/research/cga19-ffr.pdf) IEEE Computer Graphics and Applications.*
+	
+	选取生成的streamlines经过压缩，通过CNN来重建流场（可用于Insitu）
+	
+	两步重建：
+	1. streamline到LR向量场
+	2. LR向量场经过deconv+residual到HR向量场
+	
+	Loss：MSE & Evaluation：PSNR
 #### 8. 提取流场vortex
 - 学习unsteady场的最优参考系参数
 
