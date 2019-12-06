@@ -214,9 +214,17 @@ simulation, vi-sual mapping, and view parameters
 - 体数据渲染生成
   >*Berger, M., Li, J., & Levine, J.A. (2017). [A Generative Model for Volume Rendering.](https://arxiv.org/abs/1710.09545) IEEE Transactions on Visualization and Computer Graphics, 25, 1636-1650.*
 
-#### 2. GAN图像生成
+#### 2. GAN图像生成/迁移
 - <span id="sngan">SN-GAN：谱归一化，解决训练不稳定</span>
 	>*Miyato, Takeru & Kataoka, Toshiki & Koyama, Masanori & Yoshida, Yuichi. (2018).(oral) [Spectral Normalization for Generative Adversarial Networks.](https://arxiv.org/abs/1802.05957) IEEE ICLR*
+- 图像迁移：StarGAN v2
+	>*Yunjey Choi, Youngjung Uh, Jaejun Yoo, Jung-Woo Ha.(2019) [StarGAN v2: Diverse Image Synthesis for Multiple Domains](https://www.arxiv-vanity.com/papers/1912.01865/)*
+	
+	Github : https://github.com/clovaai/stargan-v2
+	从一个领域转换到另外一个领域的图像合成。现有的GAN模型为了实现在k个不同的风格域上进行迁移，需要构建k∗(k−1)个生成器，即只解决了一个领域到另一个领域的转换，对于每一个领域转换，都需要重新训练一个模型去解决。并且还不能跨数据集训练（标注不能复用）。StarGAN正是为了解决跨多个域、多个数据集的训练而提出的。
+	
+	将域信息和图片一起输入进行训练，并在域标签中加入mask vector，便于不同的训练集进行联合训练
+	
 #### 3. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
 ##### 3.1 Volume&isosurface超分辨率
