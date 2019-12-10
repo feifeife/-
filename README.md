@@ -100,7 +100,10 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	用PointNet将3D点云转化成2D深度图,后用ResNet50分类
 
 	详解：https://blog.csdn.net/cy13762633948/article/details/82780042
+- 点云估计场景流
+	>*[FlowNet3D++: Geometric Losses For Deep Scene Flow Estimation](https://arxiv.org/abs/1912.01438)Zirui Wang, Shuda Li,arxiv(2019)*
 
+	提出向量的cosine distance loss来度量向量的夹角
 - Point cloud 点云图的上采样(GAN)
   >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
 #### 4. 目标检测
