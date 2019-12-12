@@ -16,7 +16,7 @@
 	- [图像生成](#2-gan图像生成)
   	- [3DGAN](#3-3dgan)
 - [四. 超分辨率](#四-超分辨率)
-	- [Volume&Isosurface](#1-volume/isosurface)
+	- [Volume&Isosurface](#1-volume-and-isosurface)
 	- [Image SR](#2-image)
 	- [Video SR](#3-video)
 	- [时序流场SR](#4-时序流场)
@@ -242,7 +242,7 @@ simulation, vi-sual mapping, and view parameters
 
 ### 四. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
-#### 1. Volume/Isosurface
+#### 1. Volume and Isosurface
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
 - Isosurface（CNN）
