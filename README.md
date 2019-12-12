@@ -9,22 +9,31 @@
 	- [Point Cloud](#3-Point-Cloud)
 	- [目标检测](#4-目标检测)
 	- [结构分析](#5-cnn结构分析)
-	- [视频](#6-视频预测未来帧)
-	- [streamline](#7-提取流场streamline特征)
-	- [涡识别](#8-提取流场vortex)
+	- [streamline](#6-提取流场streamline特征)
+	- [涡识别](#7-识别流场vortex)
 - [三. GAN](#三-gan)
 	- [Volume render](#1-volume)
 	- [图像生成](#2-gan图像生成)
-  - [超分辨率](#3-超分辨率)
-  - [3DGAN](#4-3dgan)
+  - [3DGAN](#3-3dgan)
   - [视频预测](#5-预测视频的未来帧)
-- [四. NLP](#四-nlp)
+- [四. 超分辨率](#四-超分辨率)
+	- [Volume&Isosurface](#1-volume-isosurface)
+	- [Image SR](#2-image)
+	- [Video SR](#3-video)
+	- [时序流场SR](#4-时序流场)
+- [五. Deblur]
+	- [Image Deblur](#1-image-deblur)
+	- [Video Deblur](#2-video-deblur)
+- [六. 视频预测]
+	- [GAN](#1-gan)
+	- [CNN](#2-cnn)
+- [七. NLP](#七-nlp)
 	- [Attention](#1-attention)
 	- [Transformer](#2-transformer)
 	- [Memory机制](#3-memory)
-- [五. HPC](#五-hpc)
+- [八. HPC](#八-hpc)
 	- [并行粒子追踪](#并行粒子追踪)
-- [六. Flow visualization](#六-flow-visualization)
+- [九. Flow visualization](#九-flow-visualization)
 	- [FTLE](#1-ftle)
 	- [流体模拟](#2-fluid-simulation)
 
@@ -128,13 +137,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 - focus more on texture
 	>*Geirhos, Robert & Rubisch, Patricia & Michaelis, Claudio & Bethge, Matthias & Wichmann, Felix & Brendel, Wieland. (2018). [ImageNet-trained CNNs are biased towards texture; increasing shape bias improves accuracy and robustness.](https://arxiv.org/abs/1811.12231) ICLR*
 	
-
-#### 6. 视频预测未来帧
-- Deep Voxel Flow 
-	>*(oral)Liu, Z., Yeh, R.A., Tang, X., Liu, Y., & Agarwala, A. (2017). Video Frame Synthesis Using Deep Voxel Flow. 2017 IEEE International Conference on Computer Vision (ICCV), 4473-4481.*
-  
-  利用现有的video进行无监督的学习
-#### 7. 提取流场streamline特征
+#### 6. 提取流场streamline特征
 - 流场可视化：Flownet：streamlines的聚类和选择（去噪）
   更好的呈现可视化的效果，防止重叠现象等
   >*Han, J., Tao, J., & Wang, C. (2018). FlowNet: [A Deep Learning Framework for Clustering and Selection of Streamlines and Stream Surfaces.](https://pdfs.semanticscholar.org/d196/cb800c32afaebf2933f86f4fe1ab8b11e87b.pdf?_ga=2.34339045.533564957.1574860954-1135356387.1566352454) IEEE transactions on visualization and computer graphics.*
@@ -155,7 +158,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	2. LR向量场经过deconv+residual到HR向量场
 	
 	Loss：MSE & Evaluation：PSNR
-#### 8. 提取流场vortex
+#### 7. 识别流场vortex
 - 学习unsteady场的最优参考系参数
 
 	> 1. *Kim, B., & Günther, T. (2019). [Robust Reference Frame Extraction from Unsteady 2D Vector Fields with Convolutional Neural Networks.](https://arxiv.org/abs/1903.10255) Comput. Graph. Forum,Eurovis 38, 285-295.*
@@ -229,9 +232,18 @@ simulation, vi-sual mapping, and view parameters
 	
 	将域信息和图片一起输入进行训练，并在域标签中加入mask vector，便于不同的训练集进行联合训练
 	
-#### 3. 超分辨率
+
+#### 3. 3Dgan 
+
+- 生成3D物体的体数据
+  >*Wu, J., Zhang, C., Xue, T., Freeman, W.T., & Tenenbaum, J.B. (2016). [Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling](http://3dgan.csail.mit.edu/) NIPS.*
+  
+  >*Mo, K., Guerrero, P., Yi, L., Su, H., Wonka, P., Mitra, N., & Guibas, L.J. (2019). [StructureNet: Hierarchical Graph Networks for 3D Shape Generation.](https://cs.stanford.edu/~kaichun/structurenet/) ArXiv, abs/1908.00575.*
+  
+
+### 四. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
-##### 3.1 Volume&isosurface超分辨率
+#### 1. Volume&isosurface
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
 - Isosurface（CNN）
@@ -250,7 +262,7 @@ simulation, vi-sual mapping, and view parameters
 	Github : https://github.com/shamanDevel/IsosurfaceSuperresolution
 
 
-##### 3.2 图片的超分辨率
+#### 2. Image
 - SRCNN（CNN）
   >*Dong, Chao & Loy, Chen Change & He, Kaiming & Tang, Xiaoou. (2014). [Image Super-Resolution Using Deep Convolutional Networks.](https://arxiv.org/pdf/1501.00092.pdf) IEEE Transactions on Pattern Analysis and Machine Intelligence. 38. 10.1109/TPAMI.2015.2439281.*
 - <span id="enhancenet">EnhanceNet(CNN)</span>
@@ -273,7 +285,9 @@ simulation, vi-sual mapping, and view parameters
 	Github ： https://github.com/LinZhuoChen/DUpsampling non-official
 	
 	笔记：https://www.zybuluo.com/Team/note/1442573
-##### 3.2.1 无监督或zero shot学习 （GAN）
+- SAN (**SOTA**)
+	>*Dai, T., Cai, J., Zhang, Y., Xia, S., & Zhang, L. (2019). [Second-Order Attention Network for Single Image Super-Resolution.](http://openaccess.thecvf.com/content_CVPR_2019/papers/Dai_Second-Order_Attention_Network_for_Single_Image_Super-Resolution_CVPR_2019_paper.pdf) CVPR.*
+##### 2.1 无监督或zero shot学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
 - ZSSR : ZeroShot Super Resolution
@@ -295,12 +309,30 @@ simulation, vi-sual mapping, and view parameters
   学习了cyclegan（风格迁移）中image to image的思想
 
   [知乎笔记](https://zhuanlan.zhihu.com/p/52237543)
-##### 3.2.2 多帧图像的超分辨率
-- <span id="FRVSR">多帧图像超分 : FRVSR-Net</span>
+
+#### 3. Video
+
+Video SR一般包括四个步骤：
+1. feature extraction 
+2. Alignment:optical-flow-based model:warp / deformable conv(eg.EDVR) / dynamic filter
+3. Fusion:recurrent network(eg.[FRVSR](#frvsr)) / Attention(eg.EDVR)
+4. Reconstruction
+- EDVR (**当前SOTA**)
+	>*Wang, X., Chan, K.C., Yu, K., Dong, C., & Loy, C.C. (2019). [EDVR: Video Restoration with Enhanced Deformable Convolutional Networks.](https://arxiv.org/abs/1905.02716v1) CVPR Workshops.*
+	
+	- Alignment: Pyramid, Cascading and Deformable convolutions
+	- Fusion: Temporal and Spatial Attention
+- DUF (SOTA2)
+	>*Jo, Younghyun & Oh, Seoung & Kang, Jaeyeon & Kim, Seon. (2018). [Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation.](http://openaccess.thecvf.com/content_cvpr_2018/html/Jo_Deep_Video_Super_Resolution_CVPR_2018_paper.html) CVPR.*
+- DBPN (SOTA3)
+	>*Haris, M., Shakhnarovich, G., & Ukita, N. (2019). [Recurrent Back-Projection Network for Video Super-Resolution.](https://arxiv.org/abs/1903.10128v1) CVPR.*
+- <span id="FRVSR">多帧图像超分 : FRVSR-Net (SOTA4)</span>
 	>*M. S. Sajjadi, R. Vemulapalli, and M. Brown. [Frame-recurrent video super-resolution.](https://arxiv.org/abs/1801.04590) In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 6626–6634, 2018.*
 	
 	SRNet采用[EnhanceNet](#enhancenet)
-
+- TecoGAN
+	>*Chu, M., Xie, Y., Leal-Taixé, L., & Thürey, N. (2018). [Temporally Coherent GANs for Video Super-Resolution (TecoGAN).](https://arxiv.org/abs/1811.09393) ArXiv, abs/1811.09393.*
+	
 - 多帧图像的超分（HighRes-net）
 	>*Anonymous. [Highres-net: Multi-frame super-resolution by recursive fusion.](https://openreview.net/forum?id=HJxJ2h4tPr&noteId=HJxJ2h4tPr) In Submitted to International Conference on Learning Representations, 2020. under review ICLR.*
 	将多帧图像做recursive fusion提取背景参考系，适用于卫星云图等背景运动较少的情况
@@ -308,7 +340,8 @@ simulation, vi-sual mapping, and view parameters
 	Github : https://github.com/ElementAI/HighRes-net 多帧超分
 - 太阳磁图的超分辨率（使用HighRes-net）
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*	
-##### 3.3 时序数据的超分辨率
+	
+#### 4. 时序流场
 
 - **SR**时序流体数据tempoGAN（using **Conditional GAN** & 最近邻插值）
 	>*Xie, You & Franz, Erik & Chu, Mengyu & Thuerey, Nils. (2018). [tempoGAN: A Temporally Coherent, Volumetric GAN for Super-resolution Fluid Flow.](https://arxiv.org/abs/1801.09710) ACM Transactions on Graphics. 37. 10.1145/3197517.3201304.*
@@ -348,23 +381,37 @@ simulation, vi-sual mapping, and view parameters
 	分别训练decoder：假分布z--->假数据x和encoder：真数据x---->真分布z 
 	
 	再训练discriminator区分这两个对
-#### 4. 3Dgan 
+### 五. Deblur
+#### 1. Image Deblur
+- DeblurGAN
+	>*Kupyn, O., Martyniuk, T., Wu, J., & Wang, Z. (2019). [DeblurGAN-v2: Deblurring (Orders-of-Magnitude) Faster and Better.](https://arxiv.org/abs/1908.03826) ArXiv, abs/1908.03826.*
+- IKC
+	>*Gu, J., Lu, H., Zuo, W., & Dong, C. (2019). [Blind Super-Resolution With Iterative Kernel Correction.](https://arxiv.org/abs/1904.03377) CVPR.*
+	
+	>*Bai, Y., Jia, H., Jiang, M., Liu, X., Xie, X., & Gao, W. (2019). [Single Image Blind Deblurring Using Multi-Scale Latent Structure Prior.](https://arxiv.org/abs/1906.04442) ArXiv, abs/1906.04442.*
 
-- 生成3D物体的体数据
-  >*Wu, J., Zhang, C., Xue, T., Freeman, W.T., & Tenenbaum, J.B. (2016). [Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling](http://3dgan.csail.mit.edu/) NIPS.*
-  
-  >*Mo, K., Guerrero, P., Yi, L., Su, H., Wonka, P., Mitra, N., & Guibas, L.J. (2019). [StructureNet: Hierarchical Graph Networks for 3D Shape Generation.](https://cs.stanford.edu/~kaichun/structurenet/) ArXiv, abs/1908.00575.*
-  
-#### 5. 预测视频的未来帧
+	>*Li, Lerenhan & Pan, Jinshan.(2018). [Learning a Discriminative Prior for Blind Image Deblurring.](https://arxiv.org/pdf/1803.03363.pdf)CVPR.*
+	
+- SRN: classical
+
+	>*Tao, Xin & Gao, Hongyun & Jia, Jiaya. (2018). [Scale-Recurrent Network for Deep Image Deblurring.](https://arxiv.org/abs/1802.01770) CVPR.*
+#### 2. Video Deblur
+### 六. 视频预测
+#### 1. GAN
 - <span id="videogradient">视频预测Lecun(GAN)</span>
 	>*MATHIEU M., COUPRIE C., LECUN Y.: [Deep multi-scale video prediction beyond mean square error.](https://arxiv.org/abs/1511.05440) arXiv:1511.05440. 4*
 	
 	采用梯度损失
->*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
+	>*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
->*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
-
-### 四. NLP
+	>*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
+	
+#### 2. CNN
+- Deep Voxel Flow 
+	>*(oral)Liu, Z., Yeh, R.A., Tang, X., Liu, Y., & Agarwala, A. (2017). Video Frame Synthesis Using Deep Voxel Flow. 2017 IEEE International Conference on Computer Vision (ICCV), 4473-4481.*
+  
+  利用现有的video进行无监督的学习
+### 七. NLP
 #### 1. Attention
 - 可解释性
 	>*Vashishth, S., Upadhyay, S., Tomar, G.S., & Faruqui, M. (2019). [Attention Interpretability Across NLP Tasks.](https://www.arxiv-vanity.com/papers/1909.11218/)*
@@ -375,7 +422,7 @@ simulation, vi-sual mapping, and view parameters
 - Memory机制：attention中加入存储器层(Facebook)
 	>*Lample, G., Sablayrolles, A., Ranzato, M., Denoyer, L., & J'egou, H. (2019). [Large Memory Layers with Product Keys](https://arxiv.org/abs/1907.05242). ArXiv, abs/1907.05242.*
 
-### 五. HPC
+### 八. HPC
 
 - 对HPC中的异常进行可视化(转化成向量表示)
   >*Xie, C., Xu, W., & Mueller, K. (2018). A Visual Analytics Framework for the Detection of Anomalous Call Stack Trees in High Performance Computing Applications. IEEE Transactions on Visualization and Computer Graphics, 25, 215-224.*
@@ -416,7 +463,7 @@ simulation, vi-sual mapping, and view parameters
 		* 一个node = 一个task进程 （进程间通过MPI通信）= 16个core = 64个线程：一个主线程负责MPI通信，63个work线程负责计算
 		* Data parallelism：每个进程里有两组任务队列，work和send：主线程将send队列的任务送往目标进程去执行，计算线程计算work队列里的任务，如果particle超出该进程的数据范围，就创建一个相关任务加入相应目的地的send队列。
 
-### 六. Flow Visualization
+### 九. Flow Visualization
 
 - 云层及风场可视化案例
 	>*Rimensberger, N., Gross, M.H., & Günther, T. (2019). [Visualization of Clouds and Atmospheric Air Flows.](https://pdfs.semanticscholar.org/90c2/369fc8aac8fed7a8b7818d32f1aee7571ee8.pdf?_ga=2.220039578.204005370.1571192150-1135356387.1566352454) IEEE Computer Graphics and Applications, 39, 12-25.*
