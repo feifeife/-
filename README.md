@@ -21,10 +21,10 @@
 	- [Image SR](#2-image)
 	- [Video SR](#3-video)
 	- [时序流场SR](#4-时序流场)
-- [五. Deblur]
+- [五. Deblur](五-deblur)
 	- [Image Deblur](#1-image-deblur)
 	- [Video Deblur](#2-video-deblur)
-- [六. 视频预测]
+- [六. 视频预测](六-视频预测)
 	- [GAN](#1-gan)
 	- [CNN](#2-cnn)
 - [七. NLP](#七-nlp)
