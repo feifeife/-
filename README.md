@@ -16,7 +16,7 @@
 	- [图像生成](#2-gan图像生成)
   	- [3DGAN](#3-3dgan)
 - [四. 超分辨率](#四-超分辨率)
-	- [Volume&Isosurface](#1-volume-isosurface)
+	- [Volume&Isosurface](#1-Volume&isosurface)
 	- [Image SR](#2-image)
 	- [Video SR](#3-video)
 	- [时序流场SR](#4-时序流场)
