@@ -329,6 +329,7 @@ simulation, vi-sual mapping, and view parameters
 		- discriminator采用卷积+Leakyrelu+全连接（输出score）
 	- Loss Function：
 		- adversarial loss + feature loss(自身的discriminator的隐藏层) + temporal loss
+		- temporal loss: 上一帧G生成的结果经过warp与当前帧做对比（有一个discriminator判断是来自gt还是来自生成）
 - Multi-Pass GAN
 	>*Werhahn, M., Xie, Y., Chu, M., & Thürey, N. (2019). [A Multi-Pass GAN for Fluid Flow Super-Resolution.](https://arxiv.org/abs/1906.01689) PACMCGIT, 2, 10:1-10:21.*
 	- 更高的SR倍数
