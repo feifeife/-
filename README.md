@@ -16,7 +16,7 @@
 	- [图像生成](#2-gan图像生成)
   	- [3DGAN](#3-3dgan)
 - [四. 超分辨率](#四-超分辨率)
-	- [Volume&Isosurface](#1-Volume&isosurface)
+	- [Volume&Isosurface](#1-volume-isosurface)
 	- [Image SR](#2-image)
 	- [Video SR](#3-video)
 	- [时序流场SR](#4-时序流场)
@@ -242,7 +242,7 @@ simulation, vi-sual mapping, and view parameters
 
 ### 四. 超分辨率
 对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
-#### 1. Volume&isosurface
+#### 1. Volume/Isosurface
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
 - Isosurface（CNN）
@@ -271,7 +271,7 @@ simulation, vi-sual mapping, and view parameters
 	
 	GitHub : https://github.com/msmsajjadi/EnhanceNet-Code
 - <span id="srgan">SRGAN</span>
-  >*Ledig, C., Theis, L., Huszar, F., Caballero, J., Cunningham, A., Acosta, A., Aitken, A., Tejani, A., Totz, J., Wang, Z., & Shi, W. (2016). P[Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)2017 IEEE (CVPR), 105-114.*
+  >*Ledig, C., Theis, L., Huszar, F., Caballero, J., Cunningham, A., Acosta, A., Aitken, A., Tejani, A., Totz, J., Wang, Z., & Shi, W. (2016). [Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)2017 IEEE (CVPR), 105-114.*
 - ESRGAN
   >*Wang, X., Yu, K., Wu, S., Gu, J., Liu, Y., Dong, C., Qiao, Y., & Loy, C.C. (2018). [Enhanced Super-Resolution Generative Adversarial Networks](https://arxiv.org/abs/1809.00219). ECCV Workshops.*
 - GAN生成高分辨率的突破工作
