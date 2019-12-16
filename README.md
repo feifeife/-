@@ -286,6 +286,12 @@ simulation, vi-sual mapping, and view parameters
 	笔记：https://www.zybuluo.com/Team/note/1442573
 - SAN (**SOTA**)
 	>*Dai, T., Cai, J., Zhang, Y., Xia, S., & Zhang, L. (2019). [Second-Order Attention Network for Single Image Super-Resolution.](http://openaccess.thecvf.com/content_CVPR_2019/papers/Dai_Second-Order_Attention_Network_for_Single_Image_Super-Resolution_CVPR_2019_paper.pdf) CVPR.*
+	
+	Non-locally Enhanced Residual Group (NLRG) including:
+	
+	Region-level non-local module (RL-NL) and Local-source residual attention group (LSRAG)
+	
+	Also have second-order channel attention
 ##### 2.1 无监督或zero shot学习 （GAN）
 对单幅自然图像中的图像内部分布进行建模，训练样本是单幅图像不同尺度下的采样图像。
 
