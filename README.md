@@ -272,7 +272,7 @@ simulation, vi-sual mapping, and view parameters
 	GitHub : https://github.com/msmsajjadi/EnhanceNet-Code
 - <span id="srgan">SRGAN</span>
   >*Ledig, C., Theis, L., Huszar, F., Caballero, J., Cunningham, A., Acosta, A., Aitken, A., Tejani, A., Totz, J., Wang, Z., & Shi, W. (2016). [Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network](https://arxiv.org/abs/1609.04802)2017 IEEE (CVPR), 105-114.*
-- ESRGAN
+- ESRGAN (**SOTA2**)
   >*Wang, X., Yu, K., Wu, S., Gu, J., Liu, Y., Dong, C., Qiao, Y., & Loy, C.C. (2018). [Enhanced Super-Resolution Generative Adversarial Networks](https://arxiv.org/abs/1809.00219). ECCV Workshops.*
 - GAN生成高分辨率的突破工作
   >*Wang, T., Liu, M., Zhu, J., Tao, A., Kautz, J., & Catanzaro, B. (2017). [High-Resolution Image Synthesis and Semantic Manipulation with Conditional GANs.](https://arxiv.org/abs/1711.11585) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 8798-8807.*
@@ -329,7 +329,7 @@ Video SR一般包括四个步骤：
 	- Fusion: Temporal and Spatial Attention
 - DUF (SOTA2)
 	>*Jo, Younghyun & Oh, Seoung & Kang, Jaeyeon & Kim, Seon. (2018). [Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation.](http://openaccess.thecvf.com/content_cvpr_2018/html/Jo_Deep_Video_Super_Resolution_CVPR_2018_paper.html) CVPR.*
-- DBPN (SOTA3)
+- RBPN (SOTA3)
 	>*Haris, M., Shakhnarovich, G., & Ukita, N. (2019). [Recurrent Back-Projection Network for Video Super-Resolution.](https://arxiv.org/abs/1903.10128v1) CVPR.*
 - <span id="FRVSR">多帧图像超分 : FRVSR-Net (SOTA4)</span>
 	>*M. S. Sajjadi, R. Vemulapalli, and M. Brown. [Frame-recurrent video super-resolution.](https://arxiv.org/abs/1801.04590) In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 6626–6634, 2018.*
