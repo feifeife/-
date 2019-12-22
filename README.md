@@ -412,6 +412,11 @@ Video SR一般包括四个步骤：
 	>*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
 	
 #### 2. CNN
+- 二阶视频插值
+	>*Xu, X., Si-Yao, L., Sun, W., Yin, Q., & Yang, M. (2019). [Quadratic video interpolation.](https://arxiv.org/abs/1911.00627) NeurlIPS 2019, abs/1911.00627.*
+
+	包含加速度信息的二阶光流运动的预测，通过“光流逆转层”来预测光流的逆运动，以进行插值。并通过自适应滤波器减小逆转后的震荡。
+	
 - Deep Voxel Flow 
 	>*(oral)Liu, Z., Yeh, R.A., Tang, X., Liu, Y., & Agarwala, A. (2017). Video Frame Synthesis Using Deep Voxel Flow. 2017 IEEE International Conference on Computer Vision (ICCV), 4473-4481.*
   
