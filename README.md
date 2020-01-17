@@ -247,8 +247,11 @@ simulation, vi-sual mapping, and view parameters
 #### 3. 3Dgan 
 
 - 生成3D物体的体数据
+
   >*Wu, J., Zhang, C., Xue, T., Freeman, W.T., & Tenenbaum, J.B. (2016). [Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling](http://3dgan.csail.mit.edu/) NIPS.*
+  
   >*Girdhar, Rohit & Fouhey, David & Rodriguez, Mikel & Mulam, Harikrishna. (2016). [Learning a Predictable and Generative Vector Representation for Objects.](https://arxiv.org/abs/1603.08637) ECCV*
+  
   >*Mo, K., Guerrero, P., Yi, L., Su, H., Wonka, P., Mitra, N., & Guibas, L.J. (2019). [StructureNet: Hierarchical Graph Networks for 3D Shape Generation.](https://cs.stanford.edu/~kaichun/structurenet/) ArXiv, abs/1908.00575.*
   
 
