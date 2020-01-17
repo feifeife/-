@@ -118,7 +118,7 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 - PUGAN
   >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
 - DUP-Net
->*Zhou, H., Chen, K., Zhang, W., Fang, H., Zhou, W., & Yu, N. (2018). [DUP-Net: Denoiser and Upsampler Network for 3D Adversarial Point Clouds Defense.](https://arxiv.org/abs/1812.11017) ICCV 2019.*
+	>*Zhou, H., Chen, K., Zhang, W., Fang, H., Zhou, W., & Yu, N. (2018). [DUP-Net: Denoiser and Upsampler Network for 3D Adversarial Point Clouds Defense.](https://arxiv.org/abs/1812.11017) ICCV 2019.*
 ##### Latent representation
 - Structure Net
 	>*Mo, Kaichun & Guerrero, Leonidas. (2019). [StructureNet: hierarchical graph networks for 3D shape generation.](https://cs.stanford.edu/~kaichun/structurenet/) ACM Transactions on Graphics.*
