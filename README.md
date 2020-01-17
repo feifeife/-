@@ -112,8 +112,20 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	>*[FlowNet3D++: Geometric Losses For Deep Scene Flow Estimation](https://arxiv.org/abs/1912.01438)Zirui Wang, Shuda Li,arxiv(2019)*
 
 	提出向量的cosine distance loss来度量向量的夹角
-- Point cloud 点云图的上采样(GAN)
+##### Upsample
+- PUNet
+	>*Yu, Lequan & Li, Xianzhi & Fu, Chi-Wing & Cohen-Or, Daniel & Heng, Pheng-Ann. (2018). [PU-Net: Point Cloud Upsampling Network.](https://arxiv.org/abs/1801.06761) CVPR*
+- PUGAN
   >*Li, R., Li, X., Fu, C., Cohen-Or, D., & Heng, P.A. (2019). [PU-GAN: a Point Cloud Upsampling Adversarial Network](https://liruihui.github.io/publication/PU-GAN/). ArXiv, abs/1907.10844.*
+- DUP-Net
+>*Zhou, H., Chen, K., Zhang, W., Fang, H., Zhou, W., & Yu, N. (2018). [DUP-Net: Denoiser and Upsampler Network for 3D Adversarial Point Clouds Defense.](https://arxiv.org/abs/1812.11017) ICCV 2019.*
+##### Latent representation
+- Structure Net
+	>*Mo, Kaichun & Guerrero, Leonidas. (2019). [StructureNet: hierarchical graph networks for 3D shape generation.](https://cs.stanford.edu/~kaichun/structurenet/) ACM Transactions on Graphics.*
+- Point Cloud VAE
+	>*Han, Z., Wang, X., Liu, Y., & Zwicker, M. (2019). [Multi-Angle Point Cloud-VAE: Unsupervised Feature Learning for 3D Point Clouds from Multiple Angles by Joint Self-Reconstruction and Half-to-Half Prediction.](https://arxiv.org/abs/1907.12704) ICCV 2019, abs/1907.12704.*
+- Point cloud compression
+	>*Huang, T., & Liu, Y. (2019). [3D Point Cloud Geometry Compression on Deep Learning.](https://dl.acm.org/doi/10.1145/3343031.3351061) MM '19.*
 #### 4. 目标检测
 - Cascade R-CNN
 	>*Cai, Z., & Vasconcelos, N. (2017). [Cascade R-CNN: Delving Into High Quality Object Detection.](https://arxiv.org/abs/1712.00726) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 6154-6162.*
@@ -236,7 +248,7 @@ simulation, vi-sual mapping, and view parameters
 
 - 生成3D物体的体数据
   >*Wu, J., Zhang, C., Xue, T., Freeman, W.T., & Tenenbaum, J.B. (2016). [Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling](http://3dgan.csail.mit.edu/) NIPS.*
-  
+  >*Girdhar, Rohit & Fouhey, David & Rodriguez, Mikel & Mulam, Harikrishna. (2016). [Learning a Predictable and Generative Vector Representation for Objects.](https://arxiv.org/abs/1603.08637) ECCV*
   >*Mo, K., Guerrero, P., Yi, L., Su, H., Wonka, P., Mitra, N., & Guibas, L.J. (2019). [StructureNet: Hierarchical Graph Networks for 3D Shape Generation.](https://cs.stanford.edu/~kaichun/structurenet/) ArXiv, abs/1908.00575.*
   
 
