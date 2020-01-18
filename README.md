@@ -519,6 +519,8 @@ Video SR一般包括四个步骤：
 	
 	test data : 训练集中没有出现过的参数
 	
+	AE(*Stacked denoising autoencoders: Learning useful representations in a deep network with a local denoising criterion.* J. Mach. Learn. Res. 11(2010)): 类似于 conv autoencoder
+	
 	初始的向量场------(encoder)---->[参数向量化的向量场+每一步的输入参数向量(如烟源头的x坐标+宽度)]---------(加了residual模块的CNN:stage之间深度不变=128,空间上采样 * 2)(等价于decoder)----->模拟生成每一个时间步的向量场
 
 	1)训练一个encoder将向量场表示出n维参数向量**c**:(**z**(参数化的向量场)+**p**(输入参数))
@@ -535,5 +537,14 @@ Video SR一般包括四个步骤：
 		- autoencoder的loss:encoding生成的参数p的L2损失(线性回归的标准loss)
 		- generator的loss:生成的向量场L1损失(对于不可压缩流场采用向量场的旋度) + 向量场的梯度的L1损失(类似的梯度loss同于[lecun的video prediction论文中(2015)](#videogradient)中)
 		- 时间转移的损失:窗口大小为w=30内的每一个时间步的生成的**Δz**的L2损失的平均值
+- Latent space of fluid flow
+	>*Wiewel, S., Becher, M., & Thürey, N. (2018). [Latent-space Physics: Towards Learning the Temporal Evolution of Fluid Flow.](https://arxiv.org/abs/1802.10123) Comput. Graph. Forum, 38, 71-82.*
+	
+	AE(*Stacked convolutional auto-encoders for hierarchical feature extraction.* Proc. ICANN (2011), 52–59. 3)
+	
+	+ LSTM(类似机翻的seq2seq模型，encoder+decoder) : 给定前n步的数据，预测未来o个时间步的流体数据（速度v, 压力p）
+      
+	AE的encoder将n步的数据x映射到m维空间(latent space), 输入作为encoder的lstm，得到c维向量，输入到decoder的lstm，得到o个m维的时间步，最后通过AE的decoder得到预测的流体数据
+	
 - Scala Flow:从视频流生成流体数据
 	>*[ScalarFlow: A Large-Scale Volumetric Data Set of Real-world Scalar Transport Flows for Computer Animation and Machine Learning](https://ge.in.tum.de/publications/2019-tog-eckert/)*
