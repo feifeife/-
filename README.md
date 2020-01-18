@@ -204,12 +204,13 @@ Awesome Point Cloud：https://github.com/Yochengliu/awesome-point-cloud-analysis
 	>*Kurach, K., Lucic, M., Zhai, X., Michalski, M., & Gelly, S. (2018). [A Large-Scale Study on Regularization and Normalization in GANs.](https://arxiv.org/abs/1807.04720) ICML.*
 	
 	资料：https://daiwk.github.io/posts/cv-gan-overview.html
-	
+- VAEGAN
+	>*Larsen, A.B., Sønderby, S.K., Larochelle, H., & Winther, O. (2015). [Autoencoding beyond pixels using a learned similarity metric.](https://arxiv.org/pdf/1512.09300.pdf) ICML.*
 - 条件转移GAN：更少的数据要求+更多分类
 	>*Wu, C., Wen, W., Chen, Y., & Li, H. (2019). [Conditional Transferring Features: Scaling GANs to Thousands of Classes with 30% Less High-quality Data for Training.] (https://www.arxiv-vanity.com/papers/1909.11308/) CVPR*
 - BiGan提升
 	>*Pablo Sánchez-Martín, Pablo M. Olmos. (2019) [Improved BiGAN training with marginal likelihood equalization](https://arxiv.org/abs/1911.01425) Arxiv.*
-
+	
 #### 1. VOLUME
 - INSITUNet:流场可视化图片生成(探索参数空间)
   >*He, W., Wang, J., Guo, H., Wang, K., Shen, H., Raj, M., Nashed, Y.S., & Peterka, T. (2019). [InSituNet: Deep Image Synthesis for Parameter Space Exploration of Ensemble Simulations.](https://arxiv.org/abs/1908.00407) IEEE transactions on visualization and computer graphics.*
@@ -425,6 +426,9 @@ Video SR一般包括四个步骤：
 	>*Lotter, W., Kreiman, G., & Cox, D.D. (2015). [Unsupervised Learning of Visual Structure using Predictive Generative Networks](https://arxiv.org/abs/1511.06380). ArXiv, abs/1511.06380.*
 
 	>*Ruben Villegas, Arkanath Pathak. (2019). [High Fidelity Video Prediction with Large Stochastic Recurrent Neural Networks](https://arxiv.org/abs/1911.01655v1) NeurIPS*
+	
+- Video generaion
+	>*Chu, M., Xie, Y., Mayer, J., Leal-Taixé, L., & Thürey, N. (2018). [Learning Temporal Coherence via Self-Supervision for GAN-based Video Generation.](https://arxiv.org/abs/1811.09393) CVPR*
 	
 #### 2. CNN
 - 二阶视频插值
