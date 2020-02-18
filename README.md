@@ -258,7 +258,7 @@ simulation, vi-sual mapping, and view parameters
   
 
 ### 四. 超分辨率
-对于低分辨率的LIC图像或是低分辨率的streamlines数据进行分辨率提升，避免精细的插值运算
+
 #### 1. Volume and Isosurface
 - 体数据的上采样(CNN)
   >*Zhou, Z., Hou, Y., Wang, Q., Chen, G., Lu, J., Tao, Y., & Lin, H. (2017). Volume upscaling with convolutional neural networks. CGI.*
