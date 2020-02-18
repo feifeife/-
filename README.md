@@ -362,6 +362,24 @@ Video SR一般包括四个步骤：
 - 太阳磁图的超分辨率（使用HighRes-net）
 	>*Gitiaux, Xavier, Shane Maloney. (2019) . [Probabilistic Super-Resolution of Solar Magnetograms: Generating Many Explanations and Measuring Uncertainties.](https://arxiv.org/abs/1911.01486) In Fourth Workshop on Bayesian Deep Learning (NeurIPS 2019), Vancouver, Canada.*	
 	
+#### 4. Video interpolation (Temporal super-resolution)
+- DAIN(**SOTA**)
+	>*Bao, W., Lai, W., Ma, C., Zhang, X., Gao, Z., & Yang, M. (2019). [Depth-Aware Video Frame Interpolation.](https://arxiv.org/abs/1904.00830) 2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 3698-3707.*
+	包含4个module:
+	1. optical flow estimation
+	2. depth estimation
+	3. context extraction
+	4. interp kernal estimation
+	
+- Super Slomo
+
+	>*Jiang, H., Sun, D., Jampani, V., Yang, M., Learned-Miller, E.G., & Kautz, J. (2017). [Super SloMo: High Quality Estimation of Multiple Intermediate Frames for Video Interpolation.](https://arxiv.org/abs/1712.00080) 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition, 9000-9008.*
+	
+- CyclicGen
+
+	>*Liu, Y., Liao, Y., Lin, Y., & Chuang, Y. (2019). [Deep Video Frame Interpolation Using Cyclic Frame Generation.](https://www.csie.ntu.edu.tw/~cyy/publications/papers/Liu2019DVF.pdf) AAAI.*
+	
+	propose cycle consistent loss to make best use of training data.
 #### 4. 时序流场
 
 - **SR**时序流体数据tempoGAN（using **Conditional GAN** & 最近邻插值）
@@ -402,6 +420,8 @@ Video SR一般包括四个步骤：
 	分别训练decoder：假分布z--->假数据x和encoder：真数据x---->真分布z 
 	
 	再训练discriminator区分这两个对
+
+
 ### 五. Deblur
 #### 1. Image Deblur
 - DeblurGAN
