@@ -578,6 +578,7 @@ Video SR一般包括四个步骤：
 #### 3. Streamline selection
 - Survey
 	>*Sane, Sudhanshu. [Strategies for Seed Placement and Streamline Selection.](https://www.cs.uoregon.edu/Reports/AREA-201904-Sane.pdf) (2019).*
+	
 	>*Sane, S., Bujack, R., Garth, C. and Childs, H. (2020), [A Survey of Seed Placement and Streamline Selection Techniques.](https://diglib.eg.org/bitstream/handle/10.1111/cgf14036/v39i3pp785-809.pdf) Computer Graphics Forum, 39: 785-809.*
 
 - Reconstruct vector field from streamline
@@ -588,5 +589,9 @@ Video SR一般包括四个步骤：
 	>*J. Tao, J. Ma, C. Wang and C. Shene, ["A Unified Approach to Streamline Selection and Viewpoint Selection for 3D Flow Visualization,"](https://www.researchgate.net/profile/Jun_Ma22/publication/228065955_A_Unified_Approach_to_Streamline_Selection_and_Viewpoint_Selection_for_3D_Flow_Visualization/links/558b428408ae02c9d1f95a22/A-Unified-Approach-to-Streamline-Selection-and-Viewpoint-Selection-for-3D-Flow-Visualization.pdf) in IEEE Transactions on Visualization and Computer Graphics, vol. 19, no. 3, pp. 393-406, March 2013, doi: 10.1109/TVCG.2012.143.*
 	
 	考虑半径位0.5个网格距离内的streamline的高斯平均的向量值。及streamline上点的权重为高斯权重。GVF的mu=0.1
+- GVF
+	>*C. Xu and J. L. Prince. [Gradient vector flow: A new external force for snakes.](http://iacl.ece.jhu.edu/pubs/p087c-ieee.pdf) InCVPR, pages 66–71, 1997.*
+	
+	初始化一个场，并逼近场内的物体得到最终场。
 
 	
