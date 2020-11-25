@@ -36,6 +36,7 @@
 - [九. Flow visualization](#九-flow-visualization)
 	- [FTLE](#1-ftle)
 	- [流体模拟](#2-fluid-simulation)
+	- [Streamline/Seed Selection](#3-streamline-selection)
 
 ### 一. RNN
 - 流场可视化：预测粒子跟踪中的**数据访问**模式（LSTM）
@@ -573,3 +574,19 @@ Video SR一般包括四个步骤：
 	
 - Scala Flow:从视频流生成流体数据
 	>*[ScalarFlow: A Large-Scale Volumetric Data Set of Real-world Scalar Transport Flows for Computer Animation and Machine Learning](https://ge.in.tum.de/publications/2019-tog-eckert/)*
+
+#### 3. Streamline selection
+- Survey
+	>*Sane, Sudhanshu. [Strategies for Seed Placement and Streamline Selection.](https://www.cs.uoregon.edu/Reports/AREA-201904-Sane.pdf) (2019).*
+	>*Sane, S., Bujack, R., Garth, C. and Childs, H. (2020), [A Survey of Seed Placement and Streamline Selection Techniques.](https://diglib.eg.org/bitstream/handle/10.1111/cgf14036/v39i3pp785-809.pdf) Computer Graphics Forum, 39: 785-809.*
+
+- Reconstruct vector field from streamline
+	>*L. Xu, T. Lee and H. Shen, ["An Information-Theoretic Framework for Flow Visualization,"](https://www.researchgate.net/profile/Teng_Yok_Lee2/publication/224186391_An_Information-Theoretic_Framework_for_Flow_Visualization/links/5571712c08aedcd33b293a9b.pdf) in IEEE Transactions on Visualization and Computer Graphics, vol. 16, no. 6, pp. 1216-1224, Nov.-Dec. 2010, doi: 10.1109/TVCG.2010.131.*
+	
+	采用GVF，对流线上的速度进行初始化。
+	
+	>*J. Tao, J. Ma, C. Wang and C. Shene, ["A Unified Approach to Streamline Selection and Viewpoint Selection for 3D Flow Visualization,"](https://www.researchgate.net/profile/Jun_Ma22/publication/228065955_A_Unified_Approach_to_Streamline_Selection_and_Viewpoint_Selection_for_3D_Flow_Visualization/links/558b428408ae02c9d1f95a22/A-Unified-Approach-to-Streamline-Selection-and-Viewpoint-Selection-for-3D-Flow-Visualization.pdf) in IEEE Transactions on Visualization and Computer Graphics, vol. 19, no. 3, pp. 393-406, March 2013, doi: 10.1109/TVCG.2012.143.*
+	
+	考虑半径位0.5个网格距离内的streamline的高斯平均的向量值。及streamline上点的权重为高斯权重。GVF的mu=0.1
+
+	
