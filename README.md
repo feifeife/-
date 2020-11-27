@@ -580,8 +580,15 @@ Video SR一般包括四个步骤：
 	>*Sane, Sudhanshu. [Strategies for Seed Placement and Streamline Selection.](https://www.cs.uoregon.edu/Reports/AREA-201904-Sane.pdf) (2019).*
 	
 	>*Sane, S., Bujack, R., Garth, C. and Childs, H. (2020), [A Survey of Seed Placement and Streamline Selection Techniques.](https://diglib.eg.org/bitstream/handle/10.1111/cgf14036/v39i3pp785-809.pdf) Computer Graphics Forum, 39: 785-809.*
-
+- Manual system for seeds selection
+	>*Laramee, R. (2002).  [Interactive 3D Flow Visualization Using a Streamrunner.](https://cronfa.swan.ac.uk/Record/cronfa24627/Download/0024627-11122015103342.pdf) CHI 2002 Conference on HumanFactors in Computing Systems, Extended Abstracts*
+	
+	>*Laramee, Robert & Weiskopf, D. & Schneider, Juergen & Hauser, Helwig. (2004). [Investigating swirl and tumble flow with a comparison of visualization techniques.](https://www.researchgate.net/profile/Juergen_Schneider5/publication/4112404_Investigating_swirl_and_tumble_flow_with_a_comparison_of_visualization_techniques/links/543401d20cf294006f73440e/Investigating-swirl-and-tumble-flow-with-a-comparison-of-visualization-techniques.pdf) Proc. IEEE Visualization. 2004. 51- 58. 10.1109/VISUAL.2004.59.*
+	
+	>*Fenglin Tian, Lingqi Cheng & Ge Chen (2020) [Transfer function-based 2D/3D interactive spatiotemporal visualizations of mesoscale eddies, International Journal of Digital Earth,](https://www.tandfonline.com/doi/citedby/10.1080/17538947.2018.1543364?scroll=top&needAccess=true)*
+	streamline的可视化和交互方式。
 - Reconstruct vector field from streamline
+	
 	>*L. Xu, T. Lee and H. Shen, ["An Information-Theoretic Framework for Flow Visualization,"](https://www.researchgate.net/profile/Teng_Yok_Lee2/publication/224186391_An_Information-Theoretic_Framework_for_Flow_Visualization/links/5571712c08aedcd33b293a9b.pdf) in IEEE Transactions on Visualization and Computer Graphics, vol. 16, no. 6, pp. 1216-1224, Nov.-Dec. 2010, doi: 10.1109/TVCG.2010.131.*
 	
 	采用GVF，对流线上的速度进行初始化。
@@ -589,7 +596,7 @@ Video SR一般包括四个步骤：
 	>*J. Tao, J. Ma, C. Wang and C. Shene, ["A Unified Approach to Streamline Selection and Viewpoint Selection for 3D Flow Visualization,"](https://www.researchgate.net/profile/Jun_Ma22/publication/228065955_A_Unified_Approach_to_Streamline_Selection_and_Viewpoint_Selection_for_3D_Flow_Visualization/links/558b428408ae02c9d1f95a22/A-Unified-Approach-to-Streamline-Selection-and-Viewpoint-Selection-for-3D-Flow-Visualization.pdf) in IEEE Transactions on Visualization and Computer Graphics, vol. 19, no. 3, pp. 393-406, March 2013, doi: 10.1109/TVCG.2012.143.*
 	
 	考虑半径位0.5个网格距离内的streamline的高斯平均的向量值。及streamline上点的权重为高斯权重。GVF的mu=0.1
-- GVF
+
 	>*C. Xu and J. L. Prince. [Gradient vector flow: A new external force for snakes.](http://iacl.ece.jhu.edu/pubs/p087c-ieee.pdf) InCVPR, pages 66–71, 1997.*
 	
 	初始化一个场，并逼近场内的物体得到最终场。
